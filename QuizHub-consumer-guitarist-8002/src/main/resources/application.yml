@@ -1,0 +1,17 @@
+server:
+  port: 8002
+
+#入住
+eureka:
+  client:
+    service-url:
+      defaultZone: http://lehr.eureka1.com:7001/eureka,http://lehr.eureka2.com:7002/eureka,http://lehr.eureka3.com:7003/eureka
+    #消费者不注册
+    register-with-eureka: false
+  instance:
+    instance-id: GuitarConsumer-8002
+    prefer-ip-address: true
+
+feign:
+  hystrix:
+    enabled: true

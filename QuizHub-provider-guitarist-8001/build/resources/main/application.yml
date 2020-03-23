@@ -1,0 +1,32 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: GuitarProvider
+
+#入住
+eureka:
+  client:
+    service-url:
+      defaultZone: http://lehr.eureka1.com:7001/eureka,http://lehr.eureka2.com:7002/eureka,http://lehr.eureka3.com:7003/eureka
+  instance:
+    instance-id: GuitarProvider-8001
+    prefer-ip-address: true
+
+
+info:
+  module:
+    name: QuizHub-Provider-Guitarist
+    version: 1.0
+  authur: Lehr
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        #默认暴露所有监控点
+        include: '*'
+
+

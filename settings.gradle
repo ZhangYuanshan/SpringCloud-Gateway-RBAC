@@ -1,0 +1,12 @@
+rootProject.name = 'QuizHub'
+include 'QuizHub-Eureka-7001'
+include 'QuizHub-Common'
+include 'QuizHub-provider-guitarist-8001'
+include 'QuizHub-consumer-guitarist-8002'
+include 'QuizHub-Eureka-7002'
+include 'QuizHub-Eureka-7003'
+include 'QuizHub-HystrixDashboard-9001'
+include 'QuizHub-Zuul-9527'
+include 'QuizHub-Zuul-9527'
+include 'QuizHub-Config-3344'
+

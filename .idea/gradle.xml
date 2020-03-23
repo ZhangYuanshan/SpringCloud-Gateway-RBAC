@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Common" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Config-3344" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Eureka-7001" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Eureka-7002" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Eureka-7003" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-HystrixDashboard-9001" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Zuul-9527" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-consumer-guitarist-8002" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-provider-guitarist-8001" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

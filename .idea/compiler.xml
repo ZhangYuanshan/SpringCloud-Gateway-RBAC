@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.2/524e0a697e9d62950b2f763d88d35cd8dc82a9a1/lombok-1.18.2.jar" />
+        </processorPath>
+        <module name="QuizHub.QuizHub-Zuul-9527.test" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.1.1.RELEASE/1b4f9a8aab0bc68648caa0c42ad0806e30ef792c/spring-boot-configuration-processor-2.1.1.RELEASE.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.2/524e0a697e9d62950b2f763d88d35cd8dc82a9a1/lombok-1.18.2.jar" />
+        </processorPath>
+        <module name="QuizHub.QuizHub-Zuul-9527.main" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
