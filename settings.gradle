@@ -9,4 +9,5 @@ include 'QuizHub-HystrixDashboard-9001'
 include 'QuizHub-Zuul-9527'
 include 'QuizHub-Zuul-9527'
 include 'QuizHub-Config-3344'
+include 'QuizHub-Gateway-9527'
 

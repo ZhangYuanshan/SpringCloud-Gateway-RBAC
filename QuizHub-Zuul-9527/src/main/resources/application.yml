@@ -13,7 +13,7 @@ eureka:
     service-url:
       defaultZone: http://lehr.eureka1.com:7001/eureka,http://lehr.eureka2.com:7002/eureka,http://lehr.eureka3.com:7003/eureka
   instance:
-    instance-id: GateWay-9527
+    instance-id: Gateway-9527
     prefer-ip-address: true
 
 
