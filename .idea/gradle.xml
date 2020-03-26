@@ -16,6 +16,11 @@
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Eureka-7003" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Gateway-9527" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-HystrixDashboard-9001" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Nacos-ConfigClient-5002" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Nacos-Consumer-5001" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Nacos-Provider-6001" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Nacos-Provider-6002" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-SentinelClient-5003" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Zuul-9527" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-consumer-guitarist-8002" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-provider-guitarist-8001" />
