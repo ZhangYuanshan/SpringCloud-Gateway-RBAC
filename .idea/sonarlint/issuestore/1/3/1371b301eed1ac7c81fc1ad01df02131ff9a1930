@@ -1,0 +1,6 @@
+
+nsquid:UselessImportCheck"DRemove this unused import 'org.springframework.util.AntPathMatcher'.(ï‡Ù8îŽ¥†’.
+Lsquid:S1068".Remove this unused "antMatcher" private field.(ÿö‚ã8ŒéÐ†’.
+Wsquid:UselessImportCheck",Remove this unused import 'javafx.css.Rule'.(‹ªÁ¸8îŽ¥†’.
+Rsquid:S1068"/Remove this unused "authorities" private field.(Ê‹–¹úÿÿÿÿ8ÜñÔ†’.
+Rsquid:S1068J"/Remove this unused "authorities" private field.(Öæ‰ˆøÿÿÿÿ8ŒéÐ†’.

@@ -1,7 +1,6 @@
 package com.imlehr.quizhub.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.imlehr.quizhub.handler.FlowLimitHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

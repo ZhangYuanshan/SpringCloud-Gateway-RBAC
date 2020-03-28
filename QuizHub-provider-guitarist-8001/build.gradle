@@ -1,5 +1,5 @@
 dependencies {
-    compile project(":QuizHub-Common")
+
 //    compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.2.2.RELEASE'
 //
 //    compile group: 'org.springframework', name: 'springloaded', version: '1.2.8.RELEASE'

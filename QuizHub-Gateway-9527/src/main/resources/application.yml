@@ -3,25 +3,23 @@ server:
 
 spring:
   application:
-    name: Gateway
+    name: QuizHub-Gateway
 
   cloud:
     gateway:
+      routes:
+
+        - id: QuizHub-User
+          uri: lb://QuizHub-User
+          predicates:
+            - Path=/users/**
+
       discovery:
         locator:
           enabled: true
-
-
-#入住
-eureka:
-  client:
-    service-url:
-      defaultZone: http://lehr.eureka1.com:7001/eureka,http://lehr.eureka2.com:7002/eureka,http://lehr.eureka3.com:7003/eureka
-  instance:
-    instance-id: GateWay-9527
-    prefer-ip-address: true
-
-
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
 
 info:
   module:
@@ -35,5 +33,4 @@ management:
       exposure:
         #默认暴露所有监控点
         include: '*'
-
 

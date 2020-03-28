@@ -7,7 +7,7 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.2/524e0a697e9d62950b2f763d88d35cd8dc82a9a1/lombok-1.18.2.jar" />
         </processorPath>
-        <module name="QuizHub.QuizHub-Zuul-9527.test" />
+        <module name="QuizHub.QuizHub-User-8876.test" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
@@ -15,8 +15,38 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.1.1.RELEASE/1b4f9a8aab0bc68648caa0c42ad0806e30ef792c/spring-boot-configuration-processor-2.1.1.RELEASE.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.2/524e0a697e9d62950b2f763d88d35cd8dc82a9a1/lombok-1.18.2.jar" />
         </processorPath>
-        <module name="QuizHub.QuizHub-Zuul-9527.main" />
+        <module name="QuizHub.QuizHub-User-8876.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="QuizHub.QuizHub-Auth-8828.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Auth-8828.test" target="1.8" />
+      <module name="QuizHub.QuizHub-Common.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Common.test" target="1.8" />
+      <module name="QuizHub.QuizHub-Config-3344.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Config-3344.test" target="1.8" />
+      <module name="QuizHub.QuizHub-consumer-guitarist-8002.main" target="1.8" />
+      <module name="QuizHub.QuizHub-consumer-guitarist-8002.test" target="1.8" />
+      <module name="QuizHub.QuizHub-Eureka-7001.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Eureka-7001.test" target="1.8" />
+      <module name="QuizHub.QuizHub-Eureka-7002.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Eureka-7002.test" target="1.8" />
+      <module name="QuizHub.QuizHub-Eureka-7003.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Eureka-7003.test" target="1.8" />
+      <module name="QuizHub.QuizHub-HystrixDashboard-9001.main" target="1.8" />
+      <module name="QuizHub.QuizHub-HystrixDashboard-9001.test" target="1.8" />
+      <module name="QuizHub.QuizHub-Nacos-Consumer-5001.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Nacos-Consumer-5001.test" target="1.8" />
+      <module name="QuizHub.QuizHub-Nacos-Provider-6001.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Nacos-Provider-6001.test" target="1.8" />
+      <module name="QuizHub.QuizHub-Nacos-Provider-6002.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Nacos-Provider-6002.test" target="1.8" />
+      <module name="QuizHub.QuizHub-Resource-8890.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Resource-8890.test" target="1.8" />
+      <module name="QuizHub.QuizHub-UAA-8892.main" target="1.8" />
+      <module name="QuizHub.QuizHub-UAA-8892.test" target="1.8" />
+      <module name="QuizHub.QuizHub-Zuul-9527.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Zuul-9527.test" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
