@@ -12,3 +12,7 @@ spring:
       transport:
         dashboard: localhost:8080
         port: 8719 #默认端口，如果被占用就会+1慢慢找
+
+feign:
+  sentinel:
+    enabled: true

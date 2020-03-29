@@ -53,10 +53,10 @@ public class JwtFilter implements GlobalFilter, Order {
         if(authService.hasAuth(uri,jsonJwt))
         {
             log.info("Auth checked!");
-            //添加参数
-            Consumer<HttpHeaders> httpHeaders = h -> h.set("username", jsonJwt.get("username").toString());
-            ServerHttpRequest serverHttpRequest = exchange.getRequest().mutate().headers(httpHeaders).build();
-            exchange.mutate().request(serverHttpRequest).build();
+            //添加参数 TODO ： 暂时有问题 NPE
+//            Consumer<HttpHeaders> httpHeaders = h -> h.set("username", jsonJwt.get("username").toString());
+//            ServerHttpRequest serverHttpRequest = exchange.getRequest().mutate().headers(httpHeaders).build();
+//            exchange.mutate().request(serverHttpRequest).build();
             //完成
             return chain.filter(exchange);
         }

@@ -1,3 +1,2 @@
 
-Esquid:S1481"'Remove this unused "ad" local variable.(½ƒöö8èë†’.
-Tsquid:S1854"6Remove this useless assignment to local variable "ad".(½ƒöö8èë†’.
+[squid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8²™‡’.

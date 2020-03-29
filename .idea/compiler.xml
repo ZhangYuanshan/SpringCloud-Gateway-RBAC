@@ -41,6 +41,8 @@
       <module name="QuizHub.QuizHub-Nacos-Provider-6001.test" target="1.8" />
       <module name="QuizHub.QuizHub-Nacos-Provider-6002.main" target="1.8" />
       <module name="QuizHub.QuizHub-Nacos-Provider-6002.test" target="1.8" />
+      <module name="QuizHub.QuizHub-provider-guitarist-8001.main" target="1.8" />
+      <module name="QuizHub.QuizHub-provider-guitarist-8001.test" target="1.8" />
       <module name="QuizHub.QuizHub-Resource-8890.main" target="1.8" />
       <module name="QuizHub.QuizHub-Resource-8890.test" target="1.8" />
       <module name="QuizHub.QuizHub-UAA-8892.main" target="1.8" />

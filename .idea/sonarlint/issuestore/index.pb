@@ -11,8 +11,6 @@ M
 QuizHub-UAA-8899/build.gradle,3/5/3528acd5a867b3f177b0bc326d6e4f852321a34f
 Q
 !QuizHub-Gateway-9527/build.gradle,f/2/f2f77699c68409658c6c72f104c8db22b268a960
-\
-,QuizHub-provider-guitarist-8001/build.gradle,c/b/cbaa7a05e2e02a293a11e40a62abaa935b1850c7
 ã
 [QuizHub-SentinelClient-5003/src/main/java/com/imlehr/quizhub/SentinalClientApplication.java,b/2/b25a1ad4f4aa876ebc4d79933983ebd1bfc653a2
 ä
@@ -53,7 +51,15 @@ EQuizHub-UAA-8899/src/main/java/com/imlehr/quizhub/UaaApplication.java,5/a/5aa6
 OQuizHub-UAA-8899/src/main/java/com/imlehr/quizhub/config/WebSecurityConfig.java,a/1/a198b8ea2555fc17ff2c788c2514c4a9db89a9cc
 Ü
 VQuizHub-Gateway-9527/src/main/java/com/imlehr/quizhub/gateway/service/AuthService.java,d/f/df968dd7cada45b6a2c3c167ef8e170468cf5bed
-Ä
-PQuizHub-Gateway-9527/src/main/java/com/imlehr/quizhub/gateway/bean/AuthRule.java,1/3/1371b301eed1ac7c81fc1ad01df02131ff9a1930
 Ñ
 TQuizHub-Gateway-9527/src/main/java/com/imlehr/quizhub/gateway/config/ConfigRule.java,3/6/3637beb3806570ac900c2eb6abc584ea68385ba4
+Ñ
+TQuizHub-GlobalCommon/src/main/java/com/imlehr/quizhub/javabean/pojo/ResponseMsg.java,1/9/19e0536b8707bf33b458f52f26b012def10119f1
+Å
+QQuizHub-Gateway-9527/src/main/java/com/imlehr/quizhub/gateway/bean/AuthRules.java,a/e/ae28d37f36efe8c542152d85c19e7cedb33b53c0
+Ñ
+TQuizHub-GlobalCommon/src/main/java/com/imlehr/quizhub/javabean/pojo/MyException.java,8/e/8e4c526a251d7363ce7cb5761d4cf12dba33cc95
+ñ
+fQuizHub-Gateway-9527/src/main/java/com/imlehr/quizhub/gateway/exception/ErrorHandlerConfiguration.java,c/7/c746a91b2577d1019f10d530a701c1e35e2b6b5a
+ë
+aQuizHub-Gateway-9527/src/main/java/com/imlehr/quizhub/gateway/exception/JsonExceptionHandler.java,e/8/e8e4f726b1ac1ca837336a7fb1fc5b0e94d27d7b

@@ -17,15 +17,15 @@ public class ResponseMsg<T> {
 
     private String errMsg;
 
-    private String errCode;
+    private String retCode;
 
     private T data;
 
 
-    private ResponseMsg(Boolean success,T data, String errMsg, String errCode) {
+    private ResponseMsg(Boolean success,T data, String errMsg, String retCode) {
         this.success = success;
         this.errMsg = errMsg;
-        this.errCode = errCode;
+        this.retCode = retCode;
         this.data = data;
     }
 
@@ -43,7 +43,12 @@ public class ResponseMsg<T> {
 
     public static ResponseMsg ofFail(MyException e)
     {
-        return new ResponseMsg(false,null,e.getMessage(),e.getErrorCode());
+        return new ResponseMsg(false,null,e.getMessage(),e.getRetCode());
+    }
+
+    public static ResponseMsg ofFail(String retCode, String errMsg)
+    {
+        return new ResponseMsg(false,null,errMsg,retCode);
     }
 
 

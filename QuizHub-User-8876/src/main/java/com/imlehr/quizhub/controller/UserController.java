@@ -1,6 +1,8 @@
 package com.imlehr.quizhub.controller;
 
+import com.imlehr.quizhub.javabean.pojo.MyException;
 import com.imlehr.quizhub.service.AuthService;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,5 +38,22 @@ public class UserController {
     {
         return "Hey Lehr!";
     }
+
+
+    @SneakyThrows
+    @GetMapping("1")
+    public String ex()
+    {
+        throw new Exception("FUck you!");
+    }
+
+
+    @SneakyThrows
+    @GetMapping("2")
+    public String ex2()
+    {
+        throw new MyException("我想让你看到的错误","405",500);
+    }
+
 
 }

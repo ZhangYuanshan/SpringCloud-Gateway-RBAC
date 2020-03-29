@@ -1,5 +1,4 @@
 rootProject.name = 'QuizHub'
-include 'QuizHub-provider-guitarist-8001'
 include 'QuizHub-Gateway-9527'
 include 'QuizHub-Nacos-ConfigClient-5002'
 include 'QuizHub-SentinelClient-5003'

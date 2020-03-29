@@ -1,7 +1,2 @@
 
-Osquid:S1602<",Remove useless curly braces around statement(ÒÌâ–øÿÿÿÿ8¤Àá„’.
-zsquid:UselessImportCheck"ORemove this unused import 'org.springframework.beans.factory.annotation.Value'.(ìø›8¸Ã»„’.
-rsquid:S00100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°“–µúÿÿÿÿ8°‡”‚’.
-Msquid:S14819"0Remove this unused "authorities" local variable.(†ÆóK8¤Àá„’.
-\squid:S18549"?Remove this useless assignment to local variable "authorities".(†ÆóK8¤Àá„’.
-csquid:S3252/"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(È¼Œò8“ã˜‚’.
+csquid:S32521"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(È¼Œò8“ã˜‚’.

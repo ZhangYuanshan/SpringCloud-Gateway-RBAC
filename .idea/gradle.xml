@@ -15,10 +15,19 @@
             <option value="$PROJECT_DIR$/QuizHub-SentinelClient-5003" />
             <option value="$PROJECT_DIR$/QuizHub-UAA-8899" />
             <option value="$PROJECT_DIR$/QuizHub-User-8876" />
-            <option value="$PROJECT_DIR$/QuizHub-provider-guitarist-8001" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/QuizHub-Gateway-9527" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/QuizHub-Gateway-9527" />
+          </set>
+        </option>
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>

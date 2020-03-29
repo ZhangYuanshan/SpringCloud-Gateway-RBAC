@@ -1,8 +1,3 @@
 
-`squid:UselessImportCheck"6Remove this unused import 'com.alibaba.fastjson.JSON'.(Ö¢å$8ä¾ÿ‘.
-squid:UselessImportCheck	"]Remove this unused import 'org.springframework.cloud.client.loadbalancer.LoadBalancerClient'.(ôéˆ–ÿÿÿÿÿ8î¤‘‚’.
-xsquid:UselessImportCheck"HRemove this unused import 'org.springframework.web.client.RestTemplate'.(Îö¼Şûÿÿÿÿ8À«‚’.
-qsquid:UselessImportCheck"ARemove this unused import 'org.springframework.http.HttpHeaders'.(ãŸñ×úÿÿÿÿ8ÑÔŒÿ‘.
-hsquid:UselessImportCheck"8Remove this unused import 'java.util.function.Consumer'.(Ì†ƒÔùÿÿÿÿ8ÑÔŒÿ‘.
-‚squid:UselessImportCheck"WRemove this unused import 'org.springframework.http.server.reactive.ServerHttpRequest'.(‘ƒˆ­8ÑÔŒÿ‘.
-xsquid:UselessImportCheck"MRemove this unused import 'org.springframework.cloud.client.ServiceInstance'.(¡‡¨ã8¯ù’‚’.
+isquid:CommentedOutCodeLine9"<This block of commented-out lines of code should be removed.(õªş¹8¯ÙŠ¦’.
+Psquid:S11358"2Complete the task associated to this TODO comment.(˜Å‘Ú8ĞÀ‹¦’.

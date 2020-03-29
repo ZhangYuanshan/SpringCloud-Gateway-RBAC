@@ -1,6 +1,7 @@
 
-usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ŠßÇùÿÿÿÿ8ĞŸÜ‘.
-ssquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ¨ğøÿÿÿÿ8†Í€’.
-usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ğïòüÿÿÿÿ8ĞŸÜ‘.
-nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õØä8éœÎ€’.
-usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÆ”üÿÿÿÿ8ĞŸÜ‘.
+usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÆ”üÿÿÿÿ8ĞŸÜ‘.
+usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ğïòüÿÿÿÿ8ĞŸÜ‘.
+usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ŠßÇùÿÿÿÿ8ĞŸÜ‘.
+V
+squid:S106."9Replace this use of System.out or System.err by a logger.(§‚Óƒ8ª‹ê¥’.
+esquid:S00112/"FDefine and throw a dedicated exception instead of using a generic one.(²¥ìÒ8½–¦’.
