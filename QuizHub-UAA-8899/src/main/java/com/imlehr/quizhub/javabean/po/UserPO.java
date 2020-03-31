@@ -1,68 +1,47 @@
 package com.imlehr.quizhub.javabean.po;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import lombok.experimental.Accessors;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * @author Lehr
  * @create: 2020-03-27
  */
+@Data
 @NoArgsConstructor
-public class UserPO implements UserDetails  {
+@Accessors(chain = true)
+public class UserPO {
 
-    private String password;
+    private String userId;
 
     private String username;
 
-    public UserPO(String username, String password)
+    private String password;
+
+    private String githubId;
+
+    private String avatarUrl;
+
+    private String bio;
+
+    private String htmlUrl;
+
+    public UserPO(UserDTO user)
     {
-        this.username = username;
-        this.password = password;
+        //github默认的密码就是用户登录名加密
+        this.password = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+
+        this.username = user.getUsername();
+
+        this.githubId = user.getGithubId();
+
+        this.avatarUrl = user.getAvatarUrl();
+
+        this.bio = user.getBio();
+
+        this.htmlUrl = user.getHtmlUrl();
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-        return authorities;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 }

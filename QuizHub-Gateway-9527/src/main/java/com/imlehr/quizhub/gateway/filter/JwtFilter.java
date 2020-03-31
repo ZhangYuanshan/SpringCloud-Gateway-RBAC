@@ -44,7 +44,7 @@ public class JwtFilter implements GlobalFilter, Order {
 
         //从请求头里获取token
         String token = exchange.getRequest().getHeaders().getFirst("token");
-        //从请求头里获取路径
+        //从请求youcuo头里获取路径
         String uri = exchange.getRequest().getURI().getPath();
         //校验jwt的合法性，如果没有jwt或者失效了，都返回null
         JSONObject jsonJwt = authService.parseJwt(token);

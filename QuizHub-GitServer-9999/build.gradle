@@ -1,0 +1,7 @@
+dependencies {
+    compile ('org.springframework.boot:spring-boot-starter-web')
+    compile ('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery')
+    compile ('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config')
+    compile group: 'org.eclipse.jgit', name: 'org.eclipse.jgit', version: '5.7.0.202003110725-r'
+
+}

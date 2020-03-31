@@ -1,0 +1,5 @@
+
+bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‰Ôãß
+osquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‰¦E
+Gsquid:S2140=")Use "java.util.Random.nextInt()" instead.(ô‡ú·8È·ÅĞ’.
+msquid:UselessImportCheck"CRemove this unused import 'com.imlehr.quizhub.javabean.po.UserDTO'.(¶œ’8„£¾Ğ’.

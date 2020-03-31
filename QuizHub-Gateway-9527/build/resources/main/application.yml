@@ -14,6 +14,15 @@ spring:
           predicates:
             - Path=/users/**
 
+        - id: QuizHub-UAA
+          uri: lb://QuizHub-UAA
+          predicates:
+            - Path=/oauth/github
+            - Path=/auth/login
+            - Path=/auth/register
+
+
+
       discovery:
         locator:
           enabled: true

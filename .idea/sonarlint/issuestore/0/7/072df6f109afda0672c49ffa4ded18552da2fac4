@@ -1,0 +1,8 @@
+
+bsquid:UselessImportCheck"2Remove this unused import 'java.util.Collections'.(¢³ïÓþÿÿÿÿ8­¢Å¨’.
+Wsquid:UselessImportCheck".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ
+csquid:S00112 "FDefine and throw a dedicated exception instead of using a generic one.(ã›™‰ûÿÿÿÿ
+osquid:UselessImportCheck"?Remove this unused import 'org.springframework.http.MediaType'.(úŸÝ¯þÿÿÿÿ8­¢Å¨’.
+psquid:UselessImportCheck"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8­¢Å¨’.
+vsquid:UselessImportCheck"MRemove this unused import 'javax.security.auth.login.AccountLockedException'.(ø¸œÙüÿÿÿÿ
+Zsquid:UselessImportCheck"*Remove this unused import 'java.util.Map'.(¼è½Òþÿÿÿÿ8­¢Å¨’.

@@ -55,12 +55,6 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
        tokenEnhancerChain.setTokenEnhancers(Arrays.asList(accessTokenConverter));
        service.setTokenEnhancer(tokenEnhancerChain);
 
-
-
-
-
-
-
        // 令牌有效期，两小时
        service.setAccessTokenValiditySeconds(7200);
        // 刷新令牌，3天
@@ -102,7 +96,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
                 .resourceIds("QuizHub")     //资源id,多个
                 .authorizedGrantTypes("authorization_code",
                         "password",
-                        "client_credential",
+                        "client_credentials",
                         "implict",          //各种允许的授权模式加上一个refresh token
                         "refresh_token")
                 .scopes("all")  //允许授权的范围
@@ -128,6 +122,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
                 .tokenKeyAccess("permitAll()")          // oauth/token这个接口是公开的
                 .checkTokenAccess("permitAll()")           //oauth/check_token公开
                 .allowFormAuthenticationForClients();  //允许表单认证
+
     }
 
 }

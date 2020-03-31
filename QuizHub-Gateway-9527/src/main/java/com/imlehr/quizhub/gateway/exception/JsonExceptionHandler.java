@@ -28,7 +28,6 @@ public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
     @Override
     protected Map<String, Object> getErrorAttributes(ServerRequest request, boolean includeStackTrace) {
 
-        System.out.println("Hey!");
         //获取异常
         Throwable error = super.getError(request);
         //打印错误
@@ -48,7 +47,7 @@ public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
         Map<String, Object> errorAttributes = new HashMap<>(8);
 
         errorAttributes.put("success", false);
-        errorAttributes.put("errCode", code);
+        errorAttributes.put("retCode", code);
         errorAttributes.put("errMsg", errMsg);
 
         return errorAttributes;

@@ -32,13 +32,13 @@ public class ResponseMsg<T> {
 
     public static ResponseMsg ofSuccess(Object data)
     {
-        return new ResponseMsg(true,data,null,null);
+        return new ResponseMsg(true,data,null,"200");
     }
 
 
     public static ResponseMsg ofSuccess()
     {
-        return new ResponseMsg(true,null,null,null);
+        return new ResponseMsg(true,null,null,"200");
     }
 
     public static ResponseMsg ofFail(MyException e)

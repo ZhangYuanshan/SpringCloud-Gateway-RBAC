@@ -1,0 +1,8 @@
+
+squid:UselessImportCheck"VRemove this unused import 'org.springframework.security.core.userdetails.UserDetails'.(ÊÁ¥8¿ÁèÏ’.
+[squid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8¿ÁèÏ’.
+asquid:UselessImportCheck"1Remove this unused import 'java.util.Collection'.(¹ÉĞšùÿÿÿÿ8¿ÁèÏ’.
+zsquid:UselessImportCheck"ORemove this unused import 'org.springframework.security.core.GrantedAuthority'.(½Á±ÿ8¿ÁèÏ’.
+squid:UselessImportCheck"_Remove this unused import 'org.springframework.security.core.authority.SimpleGrantedAuthority'.(– ‹Ìûÿÿÿÿ8¿ÁèÏ’.
+[squid:UselessImportCheck
+"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¿ÁèÏ’.
