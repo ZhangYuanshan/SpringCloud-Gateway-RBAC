@@ -1,26 +1,28 @@
 
-jsquid:S2095M"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ØĞøÿÿÿÿ
-wsquid:S00115""ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Êçàùÿÿÿÿ
-Xsquid:S2095R"AUse try-with-resources or close this "Git" in a "finally" clause.(ËÍ®
-Esquid:S1481ª"&Remove this unused "k" local variable.(¢³¯¯8ôæ¯ö’.
-wsquid:S00115#"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(“´ûÑûÿÿÿÿ
-gsquid:UselessImportCheck"DRemove this unused import 'com.imlehr.quizhub.GitServerApplication'.(Ğ¥ïR
-^squid:S2095‡"AUse try-with-resources or close this "Git" in a "finally" clause.(¨¼›İşÿÿÿÿ
-psquid:S3776›"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(–‡Ùx8ôæ¯ö’.
-osquid:ModifiersOrderCheck""EReorder the modifiers to comply with the Java Language Specification.(Êçàùÿÿÿÿ
-osquid:UselessImportCheck	"FRemove this unused import 'org.eclipse.jgit.errors.StopWalkException'.(œ îëıÿÿÿÿ
-msquid:UselessImportCheck"=Remove this unused import 'org.eclipse.jgit.revwalk.RevWalk'.(ÊÁïùûÿÿÿÿ8ø«ö’.
-bsquid:CommentedOutCodeLinev"<This block of commented-out lines of code should be removed.(Û¥¼…
-gsquid:S1192f"PDefine a constant instead of duplicating this literal "ä»“åº“ä¸å­˜åœ¨" 3 times.(Äö¿ç
-jsquid:UselessImportCheck"FRemove this unused import 'org.eclipse.jgit.revwalk.filter.RevFilter'.(›¼À«
-tsquid:UselessImportCheck"KRemove this unused import 'org.eclipse.jgit.errors.MissingObjectException'.(ô­Â‰øÿÿÿÿ
-X
-squid:S899K"BDo something with the "boolean" value returned by "createNewFile".(“¢‰œ
-ssquid:UselessImportCheck"HRemove this unused import 'org.eclipse.jgit.treewalk.filter.PathFilter'.(’­å‡8ø«ö’.
-]squid:S2095h"AUse try-with-resources or close this "Git" in a "finally" clause.(¨¼›İşÿÿÿÿ
-esquid:S2095¥"AUse try-with-resources or close this "Git" in a "finally" clause.(¨¼›İşÿÿÿÿ8‡Ê°ö’.
-bsquid:CommentedOutCodeLinet"<This block of commented-out lines of code should be removed.(Ö§îı
+vsquid:ModifiersOrderCheck)"EReorder the modifiers to comply with the Java Language Specification.(”€×˜ùÿÿÿÿ8ãüüŠ“.
+wsquid:S00115#"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Êçàùÿÿÿÿ
+psquid:S3776×"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(–‡Ùx8™é¡‹“.
 zsquid:UselessImportCheck"QRemove this unused import 'org.eclipse.jgit.errors.IncorrectObjectTypeException'.(¿å¦ˆøÿÿÿÿ
-hsquid:UselessImportCheck"=Remove this unused import 'org.eclipse.jgit.revwalk.RevTree'.(·ÙóĞ8ø«ö’.
-gsquid:CommentedOutCodeLinex"<This block of commented-out lines of code should be removed.(™¥ ÿÿÿÿÿ
-osquid:ModifiersOrderCheck#"EReorder the modifiers to comply with the Java Language Specification.(“´ûÑûÿÿÿÿ
+tsquid:UselessImportCheck"KRemove this unused import 'org.eclipse.jgit.errors.MissingObjectException'.(ô­Â‰øÿÿÿÿ
+_
+squid:S899="BDo something with the "boolean" value returned by "createNewFile".(“¢‰œ8Ô–Ÿ‹“.
+jsquid:UselessImportCheck"FRemove this unused import 'org.eclipse.jgit.revwalk.filter.RevFilter'.(›¼À«
+hsquid:UselessImportCheck"=Remove this unused import 'org.eclipse.jgit.revwalk.RevTree'.(·ÙóĞ8ø«ö’.
+Esquid:S1481æ"&Remove this unused "k" local variable.(¢³¯¯8™é¡‹“.
+ssquid:UselessImportCheck"HRemove this unused import 'org.eclipse.jgit.treewalk.filter.PathFilter'.(’­å‡8ø«ö’.
+esquid:S2095á"AUse try-with-resources or close this "Git" in a "finally" clause.(¨¼›İşÿÿÿÿ8™é¡‹“.
+msquid:UselessImportCheck"=Remove this unused import 'org.eclipse.jgit.revwalk.RevWalk'.(ÊÁïùûÿÿÿÿ8ø«ö’.
+vsquid:ModifiersOrderCheck*"EReorder the modifiers to comply with the Java Language Specification.(Øâ½‹ùÿÿÿÿ8ğ¸î‰“.
+qsquid:S2095?"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ØĞøÿÿÿÿ8Ô–Ÿ‹“.
+esquid:S2095Ã"AUse try-with-resources or close this "Git" in a "finally" clause.(¨¼›İşÿÿÿÿ8™é¡‹“.
+osquid:UselessImportCheck	"FRemove this unused import 'org.eclipse.jgit.errors.StopWalkException'.(œ îëıÿÿÿÿ
+wsquid:S00115%"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(“´ûÑûÿÿÿÿ
+osquid:ModifiersOrderCheck%"EReorder the modifiers to comply with the Java Language Specification.(“´ûÑûÿÿÿÿ
+osquid:ModifiersOrderCheck#"EReorder the modifiers to comply with the Java Language Specification.(Êçàùÿÿÿÿ
+`squid:S2095"AUse try-with-resources or close this "Git" in a "finally" clause.(ËÍ®8™é¡‹“.
+esquid:S2095£"AUse try-with-resources or close this "Git" in a "finally" clause.(¨¼›İşÿÿÿÿ8™é¡‹“.
+osquid:S1192¡"PDefine a constant instead of duplicating this literal "ä»“åº“ä¸å­˜åœ¨" 3 times.(Äö¿ç8™é¡‹“.
+|squid:UselessImportCheck
+"RRemove this unused import 'org.eclipse.jgit.internal.storage.file.FileRepository'.(Ğ‰Ób8Ğ¡‹“.
+gsquid:UselessImportCheck"DRemove this unused import 'com.imlehr.quizhub.GitServerApplication'.(Ğ¥ïR
+~squid:S00115)"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(”€×˜ùÿÿÿÿ8ãüüŠ“.
