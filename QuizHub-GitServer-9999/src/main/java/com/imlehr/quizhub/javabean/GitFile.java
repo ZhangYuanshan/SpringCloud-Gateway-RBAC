@@ -23,7 +23,7 @@ public class GitFile {
     {
         if(tw.isSubtree())
         {
-            throw new Exception("程序出错");
+            throw new Exception("程序出错，这不是文件！");
         }
 
         objectId = tw.getObjectId(0);

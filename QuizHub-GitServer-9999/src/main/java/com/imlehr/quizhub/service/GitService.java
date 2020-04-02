@@ -14,9 +14,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.treewalk.TreeWalk;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.UUID;
 
 /**
@@ -116,12 +114,32 @@ public class GitService {
         }
 
 
+        //准备一个钩子文件，来让以后每次客户提交了之后触发记录接口
+
+        File postHook = new File(gitUrl + "/hooks/post-update");
+        postHook.createNewFile();
+        FileOutputStream outStream = new FileOutputStream(postHook);
+        String s = "#!/bin/sh\n" +
+                "\n" +
+                "curl http://localhost:9999/lehr/github/addlog\n" +
+                "\n" +
+                "exec git update-server-info";
+        outStream.write(s.getBytes());
+        outStream.close();
+
+        //把钩子设置为可执行的  TODO: 现在把钩子放到前面是为了解决http同步的问题，主要就是需要一次回调...
+        postHook.setExecutable(true);
+
+
         String remoteLocal = "lehr@localhost:GitRepo/Lehr130/" + repoName + ".git";
 
         helloGit.push().setRemote(remoteLocal).call();
 
+
         //最后和bare仓库建立连接就好了
-        return "仓库创建成功！ssh链接是：" + remoteLocal;
+        return "仓库创建成功！\n" +
+                "ssh链接是：" + remoteLocal +
+                "\nhttp链接是：" + "http://localhost:9999/http/" + repoName + suffix;
     }
 
     @SneakyThrows
@@ -161,16 +179,16 @@ public class GitService {
 
         LogCommand log = git.log();
 
-        Repository repository = git.log().all().getRepository();
+        Repository repository = git.getRepository();
 
         TreeWalk tw = new TreeWalk(repository);
 
-        //把最新版本的树目录放入到TreeWalk里去准备遍历
-        tw.addTree(log.call().iterator().next().getTree());
+        //把 最新版本的树 的目录放入到TreeWalk里去准备遍历
+        RevCommit current = log.call().iterator().next();
+        tw.addTree(current.getTree());
 
         while (tw.next()) {
-
-            sb.append(new GitObject(tw, repository).toString());
+            sb.append(new GitObject(tw, repository, git).toString());
         }
 
         return sb.toString();
@@ -186,7 +204,6 @@ public class GitService {
         if (!dir.exists()) {
             return "仓库不存在";
         }
-
 
         Git git = Git.open(dir);
 
@@ -207,9 +224,12 @@ public class GitService {
             if (path.startsWith(pathString)) {
                 //如果完全一样
                 if (path.equals(pathString)) {
+                    if (!isDir.equals(tw.isSubtree())) {
+                        return "文件搜索类型不对";
+                    }
                     if (isDir) {
                         //执行文件目录遍历的操作
-                        return getDir(tw, path, repository);
+                        return getDir(tw, path, repository, git);
                     } else {
                         //执行文件内容抽取操作
                         return getFile(tw, repository);
@@ -226,12 +246,12 @@ public class GitService {
     }
 
     @SneakyThrows
-    private String getDir(TreeWalk tw, String path, Repository repository) {
+    private String getDir(TreeWalk tw, String path, Repository repository, Git log) {
         StringBuilder sb = new StringBuilder();
         tw.enterSubtree();
         while (tw.next()) {
             if ((tw.getPathString() + "/").startsWith(path)) {
-                sb.append(new GitObject(tw, repository).toString());
+                sb.append(new GitObject(tw, repository, log).toString());
             } else {
                 break;
             }
@@ -255,32 +275,120 @@ public class GitService {
 
         String remoteLocal = "lehr@localhost:GitRepo/Lehr130/" + repoName + ".git";
 
+        File directory = new File(prefix + temp);
         Git tempGit = Git.cloneRepository()
                 .setURI(remoteLocal)
-                .setDirectory(new File(prefix+temp))
+                .setDirectory(directory)
                 .setCloneAllBranches(false)
                 .call();
 
 
-        File tempUploadFile = new File(prefix+temp + "/"+filename);
+        File tempUploadFile = new File(prefix + temp + "/" + filename);
         tempUploadFile.createNewFile();
         FileOutputStream outStream = new FileOutputStream(tempUploadFile);
         String s = "# Uploading\nThis is web uploading temp file\n>From Lehr";
         outStream.write(s.getBytes());
         outStream.close();
 
-
+        //git add . 是默认忽略空目录的！！！
 
         tempGit.add().addFilepattern(".").call();
 
         CommitCommand commitCommand = tempGit.commit().setMessage("WebUploading Test!").setAllowEmpty(true);
         commitCommand.call();
 
+        tempGit.push().setRemote(remoteLocal).call();
+
+        //由于目录不是空目录，所以需要递归删除
+
+        deleteDir(directory);
+
+        return "上传完成，请检查";
+
+    }
+
+    private static boolean deleteDir(File dir) {
+        if (dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        // 目录此时为空，可以删除
+        return dir.delete();
+    }
+
+    @SneakyThrows
+    public String onlineDelete(String repoName, String path) {
+
+        //先去目标地点创建一个文件
+
+        //把这个文件上传了
+        //创建本地仓库
+        String temp = UUID.randomUUID().toString();
+
+
+        //先查询目录有没有，省的白做功
+//        File target = new File(prefix+temp + "/"+ path);
+//        if(!target.exists())
+//        {
+//            return "目标不存在";
+//        }
+
+
+        String remoteLocal = "lehr@localhost:GitRepo/Lehr130/" + repoName + ".git";
+
+        File directory = new File(prefix + temp);
+        Git tempGit = Git.cloneRepository()
+                .setURI(remoteLocal)
+                .setDirectory(directory)
+                .setCloneAllBranches(false)
+                .call();
+
+        File deletarget = new File(prefix + temp + "/" + path);
+
+        if (!deletarget.exists()) {
+            return "文件不存在";
+        }
+        if (deletarget.isFile()) {
+            deletarget.delete();
+        } else {
+            deleteDir(deletarget);
+        }
+
+        tempGit.add().setUpdate(true).addFilepattern(".").call();
+
+        CommitCommand commitCommand = tempGit.commit().setMessage("delete Test!").setAllowEmpty(true);
+        commitCommand.call();
 
         tempGit.push().setRemote(remoteLocal).call();
 
+        //由于目录不是空目录，所以需要递归删除
+        deleteDir(directory);
 
-        return "上传完成，请检查";
+        return "删除完成，请检查";
+
+    }
+
+    @SneakyThrows
+    public String addKey(String key) {
+        String keyUrl = "/home/lehr/.ssh/authorized_keys";
+
+        File auth = new File(keyUrl);
+
+        //第二个参数表示要追加内容
+        BufferedWriter bw = new BufferedWriter(new FileWriter(auth, true));
+
+        //TODO 以后需要写一个匹配算法
+        bw.write("\n" + key + "\n");
+
+        //TODO 暂时没有考虑多线程问题
+        bw.close();
+
+        return "添加成功";
 
     }
 

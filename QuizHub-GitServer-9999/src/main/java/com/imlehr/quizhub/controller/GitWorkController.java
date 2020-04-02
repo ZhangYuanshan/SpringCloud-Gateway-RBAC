@@ -10,7 +10,9 @@ import org.eclipse.jgit.treewalk.TreeWalk;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.HandlerMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -26,6 +28,12 @@ public class GitWorkController {
 
     @Autowired
     GitService service;
+
+    @GetMapping("github/addlog")
+    public void pushLog()
+    {
+        System.out.println("----------------------adding------------------------");
+    }
 
     @SneakyThrows
     @GetMapping("github/create/{repoName}")
@@ -43,16 +51,25 @@ public class GitWorkController {
 
     @SneakyThrows
     @GetMapping("github/files/{repoName}")
-    public String gitFiles(@PathVariable("repoName") String repoName) {
+    public String gitRepo(@PathVariable("repoName") String repoName) {
         return  service.gitFiles(repoName);
     }
 
-
+    private static String extractPathFromPattern(
+            final HttpServletRequest request)
+    {
+        String path = (String) request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
+        String bestMatchPattern = (String) request.getAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE);
+        return new AntPathMatcher().extractPathWithinPattern(bestMatchPattern, path);
+    }
 
 
     @SneakyThrows
-    @GetMapping("github/files/{repoName}/{type}/{brench}")
-    public String readDir(@PathVariable("repoName") String repoName,@PathVariable("type")String type, String path) {
+    @GetMapping("github/files/{repoName}/{type}/{brench}/**")
+    public String getDetail(@PathVariable("repoName") String repoName, @PathVariable("type")String type, HttpServletRequest request) {
+
+
+        String path = extractPathFromPattern(request);
 
         Boolean isDir = null;
         if("tree".equals(type))
@@ -73,10 +90,25 @@ public class GitWorkController {
 
 
     @SneakyThrows
+    @PostMapping("github/publicKey")
+    public String addKey(String key)
+    {
+        return service.addKey(key);
+    }
+
+    @SneakyThrows
     @PostMapping("github/files/{repoName}/upload")
     public String onlineUpload(@PathVariable("repoName") String repoName,String filename) {
 
         return service.onlineUpload(repoName,filename);
+
+    }
+
+    @SneakyThrows
+    @PostMapping("github/files/{repoName}/delete")
+    public String onlineDelete(@PathVariable("repoName") String repoName,String path) {
+
+        return service.onlineDelete(repoName,path);
 
     }
 

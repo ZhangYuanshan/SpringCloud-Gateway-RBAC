@@ -1,0 +1,6 @@
+
+hsquid:UselessImportCheck	"?Remove this unused import 'org.eclipse.jgit.treewalk.TreeWalk'.(ÐºõÙþÿÿÿÿ
+gsquid:UselessImportCheck">Remove this unused import 'org.eclipse.jgit.lib.ObjectLoader'.(ú°ßÿøÿÿÿÿ
+`squid:UselessImportCheck"<Remove this unused import 'org.eclipse.jgit.lib.Repository'.(øûöë
+csquid:UselessImportCheck":Remove this unused import 'org.eclipse.jgit.lib.ObjectId'.(¸àžçÿÿÿÿÿ
+?squid:S2885"#Make "format" an instance variable.(¢­ã¾þÿÿÿÿ

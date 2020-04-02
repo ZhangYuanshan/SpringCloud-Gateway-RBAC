@@ -1,6 +1,0 @@
-
-»%squid:RedundantThrowsDeclarationCheck"‰Remove the declaration of thrown exception 'org.eclipse.jgit.errors.MissingObjectException' which is a subclass of 'java.io.IOException'.(ºş¹¹
-¥%squid:RedundantThrowsDeclarationCheck"tRemove the declaration of thrown exception 'org.eclipse.jgit.errors.StopWalkException' which is a runtime exception.(ºş¹¹
-osquid:S2975"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(ÑÉÎüÿÿÿÿÿ
-Á%squid:RedundantThrowsDeclarationCheck"Remove the declaration of thrown exception 'org.eclipse.jgit.errors.IncorrectObjectTypeException' which is a subclass of 'java.io.IOException'.(ºş¹¹
-dsquid:S1182"HUse super.clone() to create and seed the cloned instance to be returned.(ÑÉÎüÿÿÿÿÿ
