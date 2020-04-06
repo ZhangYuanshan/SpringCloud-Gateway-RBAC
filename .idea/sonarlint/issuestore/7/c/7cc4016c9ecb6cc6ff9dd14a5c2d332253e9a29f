@@ -1,8 +1,8 @@
 
 wsquid:S3305&"TInject this field value directly into "tokenServices", the only method that uses it.(è™äÓıÿÿÿÿ8Ÿ½ëÏ‘.
-rsquid:S3305#"TInject this field value directly into "tokenServices", the only method that uses it.(Ú¹£Ê8Ÿ½ëÏ‘.
-œsquid:UselessImportCheck"lRemove this unused import 'org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices'.(à„Ãşúÿÿÿÿ8éùÏ‘.
-[squid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Í’î€’.
-qsquid:UselessImportCheck"FRemove this unused import 'org.springframework.core.annotation.Order'.(Ö¨æ8½”¼Ï‘.
-[squid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Í’î€’.
 wsquid:S3305*"TInject this field value directly into "tokenServices", the only method that uses it.(£À–¤øÿÿÿÿ8õÄî€’.
+[squid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Í’î€’.
+œsquid:UselessImportCheck"lRemove this unused import 'org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices'.(à„Ãşúÿÿÿÿ8éùÏ‘.
+qsquid:UselessImportCheck"FRemove this unused import 'org.springframework.core.annotation.Order'.(Ö¨æ8½”¼Ï‘.
+[squid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Í’î€’.
+rsquid:S3305#"TInject this field value directly into "tokenServices", the only method that uses it.(Ú¹£Ê8Ÿ½ëÏ‘.

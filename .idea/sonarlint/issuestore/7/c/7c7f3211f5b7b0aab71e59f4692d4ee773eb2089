@@ -1,0 +1,20 @@
+
+psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(¯šæ8Û·ŠÑ”.
+[
+squid:S106/"9Replace this use of System.out or System.err by a logger.(­›´÷üÿÿÿÿ8© Â”.
+Wsquid:S2121!"9Remove this "substring" call; it has predictable results.(ÚÆ…—8© Â”.
+V
+squid:S106d"9Replace this use of System.out or System.err by a logger.(É‘Àê8í‡Ñ”.
+[
+squid:S106E"9Replace this use of System.out or System.err by a logger.(íåÓƒÿÿÿÿÿ8í‡Ñ”.
+…squid:UselessImportCheck"URemove this unused import 'com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer'.(ùùÒÔùÿÿÿÿ8ØšÆÃ”.
+zsquid:UselessImportCheck"ORemove this unused import 'org.springframework.web.bind.annotation.GetMapping'.(‡¡‰Ø8©éœÂ”.
+8squid:S3751"Make this method "public".(¯šæ8ÁäıÆ”.
+asquid:S3752">Add a "method" parameter to this "@RequestMapping" annotation.(Çêà½ÿÿÿÿÿ8ÁäıÆ”.
+V
+squid:S106q"9Replace this use of System.out or System.err by a logger.( £‰8í‡Ñ”.
+psquid:S2095t"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(«ÄÒûÿÿÿÿ8í‡Ñ”.
+hsquid:S2674u"JCheck the return value of the "read" call to see how many bytes were read.(Îß•å8í‡Ñ”.
+V
+squid:S106e"9Replace this use of System.out or System.err by a logger.(¿‘Îœ8© Â”.
+wsquid:UselessImportCheck	"LRemove this unused import 'org.springframework.web.bind.annotation.Mapping'.(«Õ±ø8©éœÂ”.

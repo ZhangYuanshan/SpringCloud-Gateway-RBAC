@@ -95,8 +95,6 @@ S
 #QuizHub-GitServer-9999/build.gradle,3/9/39ffa9b347b4acd60a86caf97f156f663cc50e34
 â
 YQuizHub-GitServer-9999/src/main/java/com/imlehr/quizhub/controller/GitWorkController.java,b/b/bb05b627a54065553ce876118def8807083c916f
-m
-=QuizHub-GitServer-9999/src/main/resources/defaultMd/readme.md,9/2/92f0c6a53ea65bda8262716abbe34a25e760d6ca
 }
 MQuizHub-GitServer-9999/src/main/java/com/imlehr/quizhub/javabean/GitFile.java,3/6/36a5e997a7daa900643676ff63a5a239674c36e2
 |
@@ -105,3 +103,9 @@ LQuizHub-GitServer-9999/src/main/java/com/imlehr/quizhub/javabean/GitLog.java,4
 OQuizHub-GitServer-9999/src/main/java/com/imlehr/quizhub/javabean/GitObject.java,2/e/2ed0f12f13599cdf4ba6bd81d3e52051c17bcf73
 
 OQuizHub-GitServer-9999/src/main/java/com/imlehr/quizhub/service/GitService.java,9/f/9ff6abd97d37c4920e5905263b1d66008dc98aa2
+Ü
+VQuizHub-GitServer-9999/src/main/java/com/imlehr/quizhub/controller/HttpController.java,7/c/7c7f3211f5b7b0aab71e59f4692d4ee773eb2089
+Å
+QQuizHub-GitServer-9999/src/main/java/com/imlehr/quizhub/GitServerApplication.java,0/c/0cce0fb7028063b2c9b1c27616a902149d6c6ee0
+u
+EQuizHub-GitServer-9999/src/main/java/com/imlehr/quizhub/GitUtils.java,a/e/aeee220fbbae9215e29a0cb7a078d951e060579a
