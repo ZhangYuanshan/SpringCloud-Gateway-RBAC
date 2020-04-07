@@ -6,4 +6,5 @@ include 'QuizHub-GlobalCommon'
 include 'QuizHub-UAA-8899'
 include 'QuizHub-User-8876'
 include 'QuizHub-GitServer-9999'
+include 'QuizHub-Swagger'
 

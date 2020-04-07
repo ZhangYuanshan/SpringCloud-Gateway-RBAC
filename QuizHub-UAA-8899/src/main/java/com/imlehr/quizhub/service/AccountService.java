@@ -2,13 +2,10 @@ package com.imlehr.quizhub.service;
 
 import com.imlehr.quizhub.dao.UserMapper;
 import com.imlehr.quizhub.javabean.po.*;
+import com.imlehr.quizhub.service.rpc.AuthService;
+import com.imlehr.quizhub.utils.GithubUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
-
-import javax.security.auth.Subject;
 
 /**
  * @author Lehr
@@ -62,7 +59,11 @@ public class AccountService {
     }
 
 
-    //目前github登录注册的用户不支持改密码.....
+    /**
+     * 目前github登录注册的用户不支持改密码.....
+     * @param code
+     * @return
+     */
     public ResponseMsg GithubLogin(String code){
 
         GitHubInfo github = null;
@@ -90,6 +91,17 @@ public class AccountService {
     }
 
 
+    /**
+     * 通过名字获取id
+     * @param username
+     * @return
+     */
+    public String getIdByUsername(String username)
+    {
+        UserBO user = userMapper.getUserByName(username);
+        return  user.getUserId();
+
+    }
 
 
 }

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: Sentinel-Client
+    name: QuizHub-GitServer
   cloud:
     nacos:
       discovery:
@@ -13,6 +13,21 @@ spring:
         dashboard: localhost:8080
         port: 8719 #默认端口，如果被占用就会+1慢慢找
 
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
+
+
 feign:
   sentinel:
     enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+

@@ -1,8 +1,0 @@
-
-Qsquid:S1118":Add a private constructor to hide the implicit public one.(ù˜éŸ
-jsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(±Óê‹
-osquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ô¼™ôøÿÿÿÿ
-osquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ø¢¸íûÿÿÿÿ
-osquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(Şõ†—úÿÿÿÿ
-jsquid:ModifiersOrderCheck!"EReorder the modifiers to comply with the Java Language Specification.(™Şß
-asquid:S3252T"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(»ÉùÉûÿÿÿÿ

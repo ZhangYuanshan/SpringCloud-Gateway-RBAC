@@ -17,9 +17,14 @@ spring:
         - id: QuizHub-UAA
           uri: lb://QuizHub-UAA
           predicates:
-            - Path=/oauth/github
+            - Path=/auth/github
             - Path=/auth/login
             - Path=/auth/register
+
+        - id: QuizHub-GitServer
+          uri: lb://QuizHub-GitServer
+          predicates:
+            - Path=/git/**
 
 
 
@@ -29,6 +34,17 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719 #默认端口，如果被占用就会+1慢慢找
+
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
 
 info:
   module:

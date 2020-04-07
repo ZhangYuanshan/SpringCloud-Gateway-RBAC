@@ -36,6 +36,17 @@ public class GlobalReturnConfig {
         @Override
         public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
 
+
+            //这个是swagger的页面的特殊处理
+            String s = serverHttpRequest.getURI().toString();
+            if(s.contains(".html")|| s.contains("swagger")|| s.contains("api-docs") )
+            {
+                System.out.println("swagger处理");
+                return body;
+            }
+
+
+
             //来自ErrorController的异常处理
             if (body instanceof ResponseMsg) {
                 return body;

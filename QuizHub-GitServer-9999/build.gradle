@@ -1,7 +1,11 @@
 dependencies {
+    compile project (":QuizHub-Swagger")
     compile ('org.springframework.boot:spring-boot-starter-web')
     compile ('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery')
-    compile ('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config')
+    compile ('com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.cloud:spring-cloud-starter-zipkin')
+    compile('org.springframework.cloud:spring-cloud-starter-openfeign')
     compile group: 'org.eclipse.jgit', name: 'org.eclipse.jgit', version: '5.7.0.202003110725-r'
     compile group: 'org.eclipse.jgit', name: 'org.eclipse.jgit.http.server', version: '5.7.0.202003110725-r'
 

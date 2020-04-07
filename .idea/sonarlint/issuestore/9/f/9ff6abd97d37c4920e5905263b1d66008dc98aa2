@@ -1,37 +1,0 @@
-
->squid:S1075"&Remove this hard-coded path-delimiter.(®Â’£
-fsquid:S2095 "NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(Ğ˜ä†
-osquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(Êçàùÿÿÿÿ
-jsquid:S20952"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ØĞøÿÿÿÿ
-osquid:ModifiersOrderCheck!"EReorder the modifiers to comply with the Java Language Specification.(Øâ½‹ùÿÿÿÿ
-^squid:S2095š"AUse try-with-resources or close this "Git" in a "finally" clause.(¨¼›İşÿÿÿÿ
-osquid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(¶¥Ìœÿÿÿÿÿ8šéŒÈ“.
-Jsquid:S1075ß"&Remove this hard-coded path-delimiter.(¦ß’¸ÿÿÿÿÿ8ô ŠÈ“.
-wsquid:S00115 "ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(”€×˜ùÿÿÿÿ
-^squid:S2095Ğ"AUse try-with-resources or close this "Git" in a "finally" clause.(¨¼›İşÿÿÿÿ
-^
-squid:S899å";Do something with the "boolean" value returned by "delete".(Û¤ï¼ÿÿÿÿÿ8¿¢È“.
-msquid:S4042Á"IUse "java.nio.Files#delete" here for better messages on error conditions.(áùˆ«ûÿÿÿÿ8¾¼¾Ç“.
-msquid:S4042å"IUse "java.nio.Files#delete" here for better messages on error conditions.(Û¤ï¼ÿÿÿÿÿ8¿¢È“.
-hsquid:S1192˜"PDefine a constant instead of duplicating this literal "ä»“åº“ä¸å­˜åœ¨" 3 times.(Äö¿ç
-Asquid:S5411æ"*Use the primitive boolean expression here.(ù8
-X
-squid:S8991"BDo something with the "boolean" value returned by "createNewFile".(“¢‰œ
-„squid:S1192†"`Define a constant instead of duplicating this literal "lehr@localhost:GitRepo/Lehr130/" 3 times.(àÏˆùÿÿÿÿ8÷ÚÇÇ“.
-osquid:ModifiersOrderCheck "EReorder the modifiers to comply with the Java Language Specification.(”€×˜ùÿÿÿÿ
-^squid:S2095°"AUse try-with-resources or close this "Git" in a "finally" clause.(¨¼›İşÿÿÿÿ
-wsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Êçàùÿÿÿÿ
-X
-squid:S899Ÿ"BDo something with the "boolean" value returned by "createNewFile".(¤«—A
-psquid:S2095ÿ"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(­’øÿÿÿÿ8ÔÌŞï“.
-qsquid:S2095y"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(Ã‰ßşúÿÿÿÿ8ÔÌŞï“.
-~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(“´ûÑûÿÿÿÿ8ÔÌŞï“.
-vsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(“´ûÑûÿÿÿÿ8ÔÌŞï“.
-d
-squid:S899x"BDo something with the "boolean" value returned by "createNewFile".(éõù‡ıÿÿÿÿ8ÔÌŞï“.
-e
-squid:S899ƒ"BDo something with the "boolean" value returned by "setExecutable".(ÎëŒÉÿÿÿÿÿ8ÔÌŞï“.
-Vsquid:S1135‚"2Complete the task associated to this TODO comment.(ÄÒƒùÿÿÿÿ8ÔÌŞï“.
-vsquid:S3776Ç"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Éˆíçûÿÿÿÿ8ÔÌŞï“.
-Vsquid:S1135"2Complete the task associated to this TODO comment.(ß®‚ùûÿÿÿÿ8ÔÌŞï“.
-Qsquid:S1135„"2Complete the task associated to this TODO comment.(ç™ãÈ8ÔÌŞï“.
