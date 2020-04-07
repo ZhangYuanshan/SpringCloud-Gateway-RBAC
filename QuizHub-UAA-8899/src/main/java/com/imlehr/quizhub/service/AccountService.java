@@ -1,8 +1,12 @@
 package com.imlehr.quizhub.service;
 
 import com.imlehr.quizhub.dao.UserMapper;
+import com.imlehr.quizhub.javabean.GitHubInfo;
+import com.imlehr.quizhub.javabean.ResponseMsg;
+import com.imlehr.quizhub.javabean.bo.UserBO;
+import com.imlehr.quizhub.javabean.dto.UserDTO;
 import com.imlehr.quizhub.javabean.po.*;
-import com.imlehr.quizhub.service.rpc.AuthService;
+import com.imlehr.quizhub.client.AuthService;
 import com.imlehr.quizhub.utils.GithubUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

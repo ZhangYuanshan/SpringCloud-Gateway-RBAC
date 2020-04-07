@@ -35,6 +35,8 @@
       <module name="QuizHub.QuizHub-Eureka-7003.test" target="1.8" />
       <module name="QuizHub.QuizHub-HystrixDashboard-9001.main" target="1.8" />
       <module name="QuizHub.QuizHub-HystrixDashboard-9001.test" target="1.8" />
+      <module name="QuizHub.QuizHub-Nacos-ConfigClient-5002.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Nacos-ConfigClient-5002.test" target="1.8" />
       <module name="QuizHub.QuizHub-Nacos-Consumer-5001.main" target="1.8" />
       <module name="QuizHub.QuizHub-Nacos-Consumer-5001.test" target="1.8" />
       <module name="QuizHub.QuizHub-Nacos-Provider-6001.main" target="1.8" />
@@ -45,6 +47,8 @@
       <module name="QuizHub.QuizHub-provider-guitarist-8001.test" target="1.8" />
       <module name="QuizHub.QuizHub-Resource-8890.main" target="1.8" />
       <module name="QuizHub.QuizHub-Resource-8890.test" target="1.8" />
+      <module name="QuizHub.QuizHub-SentinelClient-5003.main" target="1.8" />
+      <module name="QuizHub.QuizHub-SentinelClient-5003.test" target="1.8" />
       <module name="QuizHub.QuizHub-UAA-8892.main" target="1.8" />
       <module name="QuizHub.QuizHub-UAA-8892.test" target="1.8" />
       <module name="QuizHub.QuizHub-Zuul-9527.main" target="1.8" />

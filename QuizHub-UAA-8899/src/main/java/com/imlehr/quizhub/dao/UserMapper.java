@@ -1,6 +1,6 @@
 package com.imlehr.quizhub.dao;
 
-import com.imlehr.quizhub.javabean.po.UserBO;
+import com.imlehr.quizhub.javabean.bo.UserBO;
 import com.imlehr.quizhub.javabean.po.UserPO;
 
 /**

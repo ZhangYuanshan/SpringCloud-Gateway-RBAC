@@ -1,7 +1,7 @@
 package com.imlehr.quizhub.service.impl;
 
 import com.imlehr.quizhub.dao.UserMapper;
-import com.imlehr.quizhub.javabean.vo.UserPO;
+import com.imlehr.quizhub.javabean.po.UserPO;
 import com.imlehr.quizhub.javabean.vo.UserVO;
 import com.imlehr.quizhub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

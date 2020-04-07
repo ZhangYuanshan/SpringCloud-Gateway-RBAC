@@ -1,6 +1,0 @@
-dependencies {
-    compile ('org.springframework.boot:spring-boot-starter-web')
-    compile ('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery')
-    compile ('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config')
-
-}

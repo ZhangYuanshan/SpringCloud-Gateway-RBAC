@@ -1,8 +1,7 @@
 package com.imlehr.quizhub.dao.impl;
 
 import com.imlehr.quizhub.dao.UserMapper;
-import com.imlehr.quizhub.javabean.po.UserBO;
-import com.imlehr.quizhub.javabean.po.UserDTO;
+import com.imlehr.quizhub.javabean.bo.UserBO;
 import com.imlehr.quizhub.javabean.po.UserPO;
 import org.springframework.stereotype.Component;
 

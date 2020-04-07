@@ -12,8 +12,6 @@
             <option value="$PROJECT_DIR$/QuizHub-Gateway-9527" />
             <option value="$PROJECT_DIR$/QuizHub-GitServer-9999" />
             <option value="$PROJECT_DIR$/QuizHub-GlobalCommon" />
-            <option value="$PROJECT_DIR$/QuizHub-Nacos-ConfigClient-5002" />
-            <option value="$PROJECT_DIR$/QuizHub-SentinelClient-5003" />
             <option value="$PROJECT_DIR$/QuizHub-Swagger" />
             <option value="$PROJECT_DIR$/QuizHub-UAA-8899" />
             <option value="$PROJECT_DIR$/QuizHub-User-8876" />

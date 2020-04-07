@@ -1,5 +1,6 @@
 package com.imlehr.quizhub.javabean.vo;
 
+import com.imlehr.quizhub.javabean.po.UserPO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;

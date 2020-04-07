@@ -1,7 +1,7 @@
 package com.imlehr.quizhub.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.imlehr.quizhub.javabean.po.GitHubInfo;
+import com.imlehr.quizhub.javabean.GitHubInfo;
 import lombok.SneakyThrows;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
