@@ -8,13 +8,14 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/QuizHub-Gateway-9527" />
-            <option value="$PROJECT_DIR$/QuizHub-GitServer-9999" />
-            <option value="$PROJECT_DIR$/QuizHub-GlobalCommon" />
-            <option value="$PROJECT_DIR$/QuizHub-Swagger" />
-            <option value="$PROJECT_DIR$/QuizHub-UAA-8899" />
-            <option value="$PROJECT_DIR$/QuizHub-User-8876" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Gateway-9527" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-GitServer-9999" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-GlobalCommon" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-RBAC-8900" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Repository-8877" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Swagger" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-UAA-8899" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />

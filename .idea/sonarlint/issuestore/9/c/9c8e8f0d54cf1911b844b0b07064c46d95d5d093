@@ -1,0 +1,9 @@
+
+Esquid:S1481")Remove this unused "rule" local variable.(Òß¦ì8ƒÀá¹–.
+nsquid:UselessImportCheck"DRemove this unused import 'org.springframework.util.AntPathMatcher'.(ï‡Ù8²ì®º–.
+"squid:ClassVariableVisibilityCheck""YMake authenticated a static final constant or non-public and provide accessors if needed.(›È©&8Õ±º–.
+‹"squid:ClassVariableVisibilityCheck "VMake antMatcher a static final constant or non-public and provide accessors if needed.(ÄŒıµ8–’·º–.
+;squid:S1172"&Remove these unused method parameters.(ÄÂı¡
+‘"squid:ClassVariableVisibilityCheck!"WMake authorities a static final constant or non-public and provide accessors if needed.(ØİßÙÿÿÿÿÿ8‹¸±º–.
+ƒsquid:UselessImportCheck"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8»Å·º–.
+osquid:UselessImportCheck"DRemove this unused import 'com.quizhub.gateway.service.AuthService'.(çÂ¹8»Å·º–.

@@ -1,6 +1,0 @@
-
-Fsquid:S2885"#Make "format" an instance variable.(¢­ã¾þÿÿÿÿ8Úß Æ“.
-lsquid:UselessImportCheck"<Remove this unused import 'org.eclipse.jgit.api.LogCommand'.(º“à™þÿÿÿÿ8þ¶Æ“.
-Asquid:S54116"*Use the primitive boolean expression here.(ÔþÂû
-Ksquid:S1068"(Remove this unused "path" private field.(á¨©æýÿÿÿÿ8´–¦Æ“.
-csquid:UselessImportCheck":Remove this unused import 'org.eclipse.jgit.lib.ObjectId'.(¸àžçÿÿÿÿÿ

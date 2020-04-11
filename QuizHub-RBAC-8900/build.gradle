@@ -1,0 +1,9 @@
+
+dependencies {
+    compile project(":QuizHub-Swagger")
+    compile ('org.springframework.boot:spring-boot-starter-web')
+    compile ('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile ('com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel')
+    compile('org.springframework.cloud:spring-cloud-starter-zipkin')
+}

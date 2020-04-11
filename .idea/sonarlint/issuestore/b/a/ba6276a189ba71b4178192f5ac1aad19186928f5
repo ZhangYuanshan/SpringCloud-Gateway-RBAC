@@ -1,5 +1,0 @@
-
-~squid:UselessImportCheck
-"NRemove this unused import 'org.springframework.security.crypto.bcrypt.BCrypt'.(¨úì®ÿÿÿÿÿ8İïÕ‘.
-wsquid:S2293%"YReplace the type specification in this constructor call with the diamond operator ("<>").(«ä¶8¯ßÅÕ‘.
-asquid:UselessImportCheck"1Remove this unused import 'java.io.Serializable'.(èãîÂÿÿÿÿÿ8¢­ËÑ’.

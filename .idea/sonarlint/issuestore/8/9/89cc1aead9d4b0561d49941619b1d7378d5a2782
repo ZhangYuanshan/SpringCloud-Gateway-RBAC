@@ -1,0 +1,6 @@
+
+\squid:S32526"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(È¼Œò
+Vsquid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ
+Msquid:S5411H"*Use the primitive boolean expression here.(«†–ðÿÿÿÿÿ8®¥’»–.
+Tsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ
+dsquid:UselessImportCheck";Remove this unused import 'com.alibaba.fastjson.JSONArray'.(ÿÀâ³ùÿÿÿÿ

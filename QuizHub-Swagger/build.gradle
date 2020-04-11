@@ -3,5 +3,5 @@ dependencies {
     //swagger
     compile("io.springfox:springfox-swagger2:2.9.2")
     //swagger-ui--->knife4j
-    compile 'com.github.xiaoymin:knife4j-spring-boot-starter:2.0.1'
+    compile 'com.github.xiaoymin:knife4j-spring-boot-starter:2.0.2'
 }

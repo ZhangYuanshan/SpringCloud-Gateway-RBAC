@@ -50,6 +50,10 @@ allprojects{
         testCompileOnly 'org.projectlombok:lombok:1.18.2'
         implementation 'junit:junit:4.12'
 
+
+        //瓜娃
+        compile group: 'com.google.guava', name: 'guava', version: '28.2-jre'
+
     }
 
 

@@ -1,12 +1,0 @@
-
-rsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(îİá¦
-fsquid:S00100B"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚¢¶Ç
-squid:UselessImportCheck"_Remove this unused import 'org.springframework.security.authentication.AuthenticationProvider'.(±­¼üÿÿÿÿ8Ò¶›Ñ’.
-squid:UselessImportCheck"VRemove this unused import 'org.springframework.security.core.AuthenticationException'.(¤ò›¿8Ò¶›Ñ’.
-wsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¤œÊçıÿÿÿÿ
-wsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ò¼êÊÿÿÿÿÿ
-osquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(¤œÊçıÿÿÿÿ
-osquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ò¼êÊÿÿÿÿÿ
-jsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(îİá¦
-hsquid:UselessImportCheck"8Remove this unused import 'javax.security.auth.Subject'.(â†×¦øÿÿÿÿ8Ïò°Ò’.
-xsquid:UselessImportCheck"MRemove this unused import 'org.springframework.security.core.Authentication'.(ñıÓ“8Ò¶›Ñ’.

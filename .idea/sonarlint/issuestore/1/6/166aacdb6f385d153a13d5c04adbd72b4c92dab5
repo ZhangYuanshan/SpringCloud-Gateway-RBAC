@@ -1,0 +1,15 @@
+
+ksquid:S1192\"TDefine a constant instead of duplicating this literal "@localhost:GitRepo/" 3 times.(–‹¦œ
+gsquid:S1192p"PDefine a constant instead of duplicating this literal "ä»“åº“ä¸å­˜åœ¨" 5 times.(Äö¿ç
+fsquid:S1192"JDefine a constant instead of duplicating this literal "user.name" 5 times.(ÇÕöüüÿÿÿÿ
+Asquid:S5411Â"*Use the primitive boolean expression here.(ù8
+]
+squid:S899Z"BDo something with the "boolean" value returned by "setExecutable".(ÎëŒÉÿÿÿÿÿ
+Nsquid:S1135Y"2Complete the task associated to this TODO comment.(ÄÒƒùÿÿÿÿ
+Jsquid:S1135œ"2Complete the task associated to this TODO comment.(Ôş÷ 
+isquid:S3776¤"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(‰Şà]
+fsquid:S4042™"IUse "java.nio.Files#delete" here for better messages on error conditions.(áùˆ«ûÿÿÿÿ
+fsquid:S4042º"IUse "java.nio.Files#delete" here for better messages on error conditions.(Û¤ï¼ÿÿÿÿÿ
+W
+squid:S899º";Do something with the "boolean" value returned by "delete".(Û¤ï¼ÿÿÿÿÿ
+Asquid:S1068"*Remove this unused "prefix" private field.(Èº¸

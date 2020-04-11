@@ -15,6 +15,11 @@ spring:
             - Path=/auth/login
             - Path=/auth/register
 
+        - id: QuizHub-RBAC
+          uri: lb://QuizHub-RBAC
+          predicates:
+            - Path=/**
+
         - id: QuizHub-GitServer
           uri: lb://QuizHub-GitServer
           predicates:
