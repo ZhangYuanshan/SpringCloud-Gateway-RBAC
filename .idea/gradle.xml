@@ -9,9 +9,12 @@
         <option name="modules">
           <set>
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-CommonEntity" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Gateway-9527" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-GitServer-9999" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-GlobalCommon" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Logger-8118" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-MQ" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-RBAC-8900" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Repository-8877" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Swagger" />

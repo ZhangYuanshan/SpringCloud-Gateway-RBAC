@@ -1,8 +1,8 @@
 package com.quizhub.globalcommon.config;
 
 
-import com.quizhub.globalcommon.javabean.pojo.MyException;
-import com.quizhub.globalcommon.javabean.pojo.ResponseMsg;
+import com.quizhub.common.javabean.MyException;
+import com.quizhub.common.javabean.ResponseMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

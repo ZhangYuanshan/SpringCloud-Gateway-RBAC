@@ -2,13 +2,29 @@ package com.quizhub.repository.service.serviceImpl;
 
 
 import com.google.common.collect.Lists;
-import com.quizhub.globalcommon.javabean.pojo.Pager;
+import com.quizhub.common.javabean.Pager;
+import com.quizhub.common.javabean.ResponseMsg;
+import com.quizhub.common.javabean.RpcResponse;
+import com.quizhub.mq.config.MQClient;
+import com.quizhub.mq.javabean.enums.MqTags;
+import com.quizhub.repository.client.GitRepoClient;
+import com.quizhub.repository.dao.RepoMapper;
 import com.quizhub.repository.javabean.entity.FileInfo;
+import com.quizhub.repository.javabean.po.RepoPO;
 import com.quizhub.repository.javabean.vo.RepoIntroVO;
 import com.quizhub.repository.javabean.vo.RepoVO;
 import com.quizhub.repository.service.RepoService;
+import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Future;
 
 /**
  * @author Lehr
@@ -17,24 +33,56 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class RepoServiceImpl implements RepoService {
 
+    @Autowired
+    private GitRepoClient gitRepoClient;
+
+    @Autowired
+    private RepoMapper repoMapper;
+
+
     @Override
+    @SneakyThrows
     public RepoVO getRepo(String owner, String repoName) {
-        return new RepoVO()
-                .setRepoName("测试仓库")
-                .setUsername("Lehr")
-                .setTagName("微积分").setReadmeContent("# Hi\n> readme.md".getBytes())
-                .setForkNum(0).setStarNum(0).setWatchNum(0)
-                .setIsPublic(false).setHttpUri("http://imlehr.com").setRepoIntro("一个很无聊的仓库")
-                .setFileInfoList(
-                        Lists.newArrayList(
-                                new FileInfo().setFilename("半期考试答案").setCommitMessage("瞎写的").setCommitDate("昨天").setGitPath("/ad.d").setIsDir(false),
-                                new FileInfo().setFilename("期末考试答案").setCommitMessage("瞎写的").setCommitDate("昨天").setGitPath("/ad.c").setIsDir(false),
-                                new FileInfo().setFilename("月考试答案").setCommitMessage("瞎写的").setCommitDate("昨天").setGitPath("/ad.b").setIsDir(false),
-                                new FileInfo().setFilename("平时作业大集合").setCommitMessage("瞎写的").setCommitDate("昨天").setGitPath("/ad.a").setIsDir(true)));
+
+
+        Future<RpcResponse> future= getGitOverview(owner,repoName);
+
+        RepoPO repoInfo = repoMapper.getRepo(owner, repoName);
+
+        MQClient.sendMessage(MqTags.ACTIVITY,"访问了一次"+owner+"的"+repoName+"仓库");
+
+        RpcResponse rpc = future.get();
+
+        return new RepoVO(repoInfo).setReadmeContent(rpc.getEntity().get("readme").toString().getBytes()).setFileInfoList((List)rpc.getEntity().get("files"));
+    }
+
+    @Async
+    public Future<RpcResponse> getGitOverview(String owner,String repoName)
+    {
+        ResponseMsg repo = gitRepoClient.getRepo(owner, repoName);
+
+        RpcResponse rpc = new RpcResponse(repo);
+
+        return new AsyncResult<>(rpc);
+    }
+
+    @Override
+    public RepoVO getRepoSyn(String owner, String repoName) {
+
+        ResponseMsg repo = gitRepoClient.getRepo(owner, repoName);
+
+        RpcResponse rpc = new RpcResponse(repo);
+
+        RepoPO repoInfo = repoMapper.getRepo(owner, repoName);
+
+        MQClient.sendMessage(MqTags.ACTIVITY,"访问了一次"+owner+"的"+repoName+"仓库");
+
+        return new RepoVO(repoInfo).setReadmeContent(rpc.getEntity().get("readme").toString().getBytes()).setFileInfoList((List)rpc.getEntity().get("files"));
     }
 
     @Override
     public Pager<RepoIntroVO> listRepos(String owner, String listType, Integer pageNo, Integer pageSize) {
+
 
         //获取分页结果
         return new Pager<RepoIntroVO>().setPageNo(1).setPageSize(10).setTotalPage(2).setTotalRow(22L)

@@ -1,6 +1,6 @@
 package com.quizhub.uaa.client;
 
-import com.quizhub.uaa.javabean.ResponseMsg;
+import com.quizhub.common.javabean.ResponseMsg;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
 

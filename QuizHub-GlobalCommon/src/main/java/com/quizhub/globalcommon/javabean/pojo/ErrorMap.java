@@ -1,5 +1,7 @@
 package com.quizhub.globalcommon.javabean.pojo;
 
+import com.quizhub.common.javabean.ResponseMsg;
+
 import java.util.HashMap;
 import java.util.Map;
 

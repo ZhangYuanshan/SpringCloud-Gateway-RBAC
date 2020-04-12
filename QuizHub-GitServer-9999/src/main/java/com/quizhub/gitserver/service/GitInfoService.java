@@ -1,29 +1,30 @@
 package com.quizhub.gitserver.service;
 
+import com.quizhub.common.javabean.MyException;
+import com.quizhub.gitserver.javabean.dto.GitFileInfoDTO;
+import com.quizhub.gitserver.javabean.dto.GitLogDTO;
+import com.quizhub.gitserver.javabean.dto.GitOverviewDTO;
+import com.quizhub.gitserver.javabean.dto.GitUrlDTO;
+
+import java.util.List;
+
 /**
  * @author Lehr
  * @create: 2020-04-01
  */
 public interface GitInfoService {
 
-    String createRepo(String owner, String repoName);
+    GitUrlDTO createRepo(String owner, String repoName)throws MyException;
+
+    List<GitLogDTO> gitLog(String owner, String repoName) throws MyException;
 
 
-    String gitLog(String owner, String repoName);
+    GitOverviewDTO repoOverview(String owner, String repoName) throws MyException;
 
+    Object getDetail(String owner, String repoName, String path, Boolean isDir) throws MyException;
 
-    String gitFiles(String owner, String repoName);
+    void onlineUpload(String owner, String repoName, String filename) throws MyException;
 
-
-
-    String getDetail(String owner, String repoName, String path, Boolean isDir);
-
-
-
-    String onlineUpload(String owner, String repoName, String filename);
-
-
-
-    String onlineDelete(String owner, String repoName, String path);
+    void onlineDelete(String owner, String repoName, String path) throws MyException;
 
 }

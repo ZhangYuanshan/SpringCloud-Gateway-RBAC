@@ -20,6 +20,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="QuizHub-RepoEntity.main" target="1.8" />
+      <module name="QuizHub-RepoEntity.test" target="1.8" />
+      <module name="QuizHub.QuizHub-Activity-8118.main" target="1.8" />
+      <module name="QuizHub.QuizHub-Activity-8118.test" target="1.8" />
       <module name="QuizHub.QuizHub-Auth-8828.main" target="1.8" />
       <module name="QuizHub.QuizHub-Auth-8828.test" target="1.8" />
       <module name="QuizHub.QuizHub-Common.main" target="1.8" />
@@ -34,6 +38,8 @@
       <module name="QuizHub.QuizHub-Eureka-7002.test" target="1.8" />
       <module name="QuizHub.QuizHub-Eureka-7003.main" target="1.8" />
       <module name="QuizHub.QuizHub-Eureka-7003.test" target="1.8" />
+      <module name="QuizHub.QuizHub-GitRepoEntity.main" target="1.8" />
+      <module name="QuizHub.QuizHub-GitRepoEntity.test" target="1.8" />
       <module name="QuizHub.QuizHub-HystrixDashboard-9001.main" target="1.8" />
       <module name="QuizHub.QuizHub-HystrixDashboard-9001.test" target="1.8" />
       <module name="QuizHub.QuizHub-Nacos-ConfigClient-5002.main" target="1.8" />

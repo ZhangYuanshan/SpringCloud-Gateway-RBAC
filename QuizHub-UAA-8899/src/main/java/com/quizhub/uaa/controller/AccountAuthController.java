@@ -1,6 +1,6 @@
 package com.quizhub.uaa.controller;
 
-import com.quizhub.uaa.javabean.ResponseMsg;
+import com.quizhub.common.javabean.ResponseMsg;
 import com.quizhub.uaa.javabean.dto.UserDTO;
 import com.quizhub.uaa.service.AccountService;
 import io.swagger.annotations.Api;
@@ -57,22 +57,6 @@ public class AccountAuthController {
     }
 
 
-
-    /**
-     * 这个就是rpc调用的登录接口，直接返回用户的id即可，如果登录失败则返回"auth-fail"字段
-     * @param username
-     * @param password
-     * @return
-     */
-    @ApiOperation(value = "账户认证",notes = "微服务内部调用，直接告诉对方，这个认证是否成功，返回用户id，如果失败则返回auth-fail")
-    @PostMapping("http-basic")
-    public String httpAuth(String username, String password)
-    {
-        Boolean success = accountService.login(username, password).getSuccess();
-
-        return "Lehr130";//success?accountService.getIdByUsername(username):"auth-fail";
-
-    }
 
 
 }

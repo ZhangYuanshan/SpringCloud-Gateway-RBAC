@@ -53,3 +53,5 @@ KQuizHub-Swagger/src/main/java/com/quizhub/swagger/config/SwaggerConfig.java,e/
 aQuizHub-GitServer-9999/src/main/java/com/quizhub/gitserver/controller/GitTransportController.java,f/e/fe7e9ef42f0bc78509fcb162086695e80d938e2a
 è
 _QuizHub-Swagger/src/main/java/com/quizhub/swagger/config/SwaggerBootstrapUiDemoApplication.java,7/f/7f8192f4620a94fcf32cafa240c88ecb60bb9272
+X
+(gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e

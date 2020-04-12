@@ -57,21 +57,28 @@ public class JwtFilter implements GlobalFilter, Order {
         {
             log.info("Auth checked!");
             //FIXME ： 暂时有问题 NPE
-//            Consumer<HttpHeaders> httpHeaders = h -> h.set("username", jsonJwt.get("username").toString());
-//            ServerHttpRequest serverHttpRequest = exchange.getRequest().mutate().headers(httpHeaders).build();
-//            exchange.mutate().request(serverHttpRequest).build();
+            request.mutate().header("userId",jsonJwt.getString("username"));
             //完成
             return chain.filter(exchange);
         }
 
         //权利不足，返回提示，有可能是权限不够或者没有登录或者token到期造成的
         log.info("Unauthorized! Request is denied!");
+
         ServerHttpResponse response = exchange.getResponse();
         response.setStatusCode(HttpStatus.UNAUTHORIZED);
         JSONObject message = new JSONObject();
         message.put("success", false);
-        message.put("errCode", "401");
-        message.put("errMsg", "权限不足");
+        if(jsonJwt==null)
+        {
+            message.put("errCode", "401");
+            message.put("errMsg", "需要登录");
+        }
+        else
+        {
+            message.put("errCode", "403");
+            message.put("errMsg", "权限不足");
+        }
         message.put("data", null);
         byte[] bits = message.toJSONString().getBytes(StandardCharsets.UTF_8);
         DataBuffer buffer = response.bufferFactory().wrap(bits);

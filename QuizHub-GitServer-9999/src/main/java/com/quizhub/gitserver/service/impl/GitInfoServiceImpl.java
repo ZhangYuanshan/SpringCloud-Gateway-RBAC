@@ -1,8 +1,7 @@
 package com.quizhub.gitserver.service.impl;
 
-import com.quizhub.gitserver.javabean.GitFile;
-import com.quizhub.gitserver.javabean.GitLog;
-import com.quizhub.gitserver.javabean.GitObject;
+import com.quizhub.common.javabean.MyException;
+import com.quizhub.gitserver.javabean.dto.*;
 import com.quizhub.gitserver.service.GitInfoService;
 import com.quizhub.gitserver.utils.JGitUtils;
 import lombok.SneakyThrows;
@@ -14,6 +13,8 @@ import org.eclipse.jgit.treewalk.TreeWalk;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -23,13 +24,14 @@ import java.util.UUID;
 @Service
 public class GitInfoServiceImpl implements GitInfoService {
 
-    private static final String prefix = "null";
     private static final String SUFFIX = ".git";
-    private static final String CONFIG = "/home/"+System.getProperty("user.name")+"/GitRepo/team-quizhub/";
+    private static final String CONFIG = "/home/" + System.getProperty("user.name") + "/GitRepo/team-quizhub/";
 
     private Git initGit;
 
-    //初始化环境配置
+    /**
+     * 初始化环境配置
+     */
     @SneakyThrows
     public GitInfoServiceImpl() {
 
@@ -54,23 +56,27 @@ public class GitInfoServiceImpl implements GitInfoService {
 
             //完成初始化环境配置
             JGitUtils.addCommit(initGit, ":tada: Welcome to QuizHub!");
-        }
-        else {
+        } else {
             initGit = Git.open(gitRepo);
         }
 
     }
 
-    //创建仓库
-    @SneakyThrows
+    /**
+     * 创建仓库
+     *
+     * @param owner
+     * @param repoName
+     * @return
+     */
     @Override
-    public String createRepo(String owner, String repoName) {
+    public GitUrlDTO createRepo(String owner, String repoName) throws MyException {
 
         //创建本地仓库
         String gitUrl = JGitUtils.getRepoPath(owner, repoName) + SUFFIX;
         File basic = new File(gitUrl);
         if (basic.exists()) {
-            return "请换一个名字！";
+            throw new MyException("仓库名称已被占用", "1008");
         }
 
         //初始化仓库
@@ -89,53 +95,57 @@ public class GitInfoServiceImpl implements GitInfoService {
         //把钩子设置为可执行的  TODO: 现在把钩子放到前面是为了解决http同步的问题，主要就是需要一次回调...
         postHook.setExecutable(true);
 
-        String sshUrl = System.getProperty("user.name")+"@localhost:GitRepo/" + owner + "/" + repoName + SUFFIX;
+        String sshUrl = System.getProperty("user.name") + "@localhost:GitRepo/" + owner + "/" + repoName + SUFFIX;
         String httpUrl = "http://localhost:9999/git/" + owner + "/" + repoName + SUFFIX;
 
-        initGit.push().setRemote(sshUrl).call();
+        try {
+            initGit.push().setRemote(sshUrl).call();
+        } catch (Exception e) {
+            throw new MyException("初始化错误", "1004");
+        }
 
         //最后和bare仓库建立连接就好了
-        return "仓库创建成功！\n" +
-                "ssh链接是：" + sshUrl +
-                "\nhttp链接是：" + httpUrl;
+        return new GitUrlDTO().setHttpUrl(httpUrl).setSshUrl(sshUrl);
     }
 
-    @SneakyThrows
     @Override
-    public String gitLog(String owner, String repoName) {
+    public List<GitLogDTO> gitLog(String owner, String repoName) throws MyException {
 
         //创建本地仓库
-        String gitUrl = JGitUtils.getRepoPath(owner, repoName+SUFFIX);
+        String gitUrl = JGitUtils.getRepoPath(owner, repoName + SUFFIX);
 
         File dir = new File(gitUrl);
         if (!dir.exists()) {
-            return "仓库不存在";
+            throw new MyException("仓库不存在", "1009");
         }
 
-        StringBuilder sb = new StringBuilder("日志如下：\n");
+        List<GitLogDTO> logs = new ArrayList<>();
 
         try (Git git = Git.open(dir)) {
             //获取所有版本号的迭代器
             for (RevCommit commit : git.log().call()) {
-                sb.append(new GitLog(commit).toString());
+                logs.add(new GitLogDTO(commit));
             }
+        } catch (Exception e) {
+            throw new MyException("仓库日志读取失败", "1019");
         }
 
-        return sb.toString();
+        return logs;
 
     }
 
-    @SneakyThrows
-    @Override
-    public String gitFiles(String owner, String repoName) {
 
-        String gitUrl = JGitUtils.getRepoPath(owner, repoName+SUFFIX);
+    @Override
+    public GitOverviewDTO repoOverview(String owner, String repoName) throws MyException {
+
+        String gitUrl = JGitUtils.getRepoPath(owner, repoName + SUFFIX);
+
         File dir = new File(gitUrl);
         if (!dir.exists()) {
-            return "仓库不存在";
+            throw new MyException("仓库不存在", "1009");
         }
 
-        StringBuilder sb = new StringBuilder("文件目录：\n");
+        List<GitFileInfoDTO> files = new ArrayList<>();
 
         try (Git git = Git.open(dir)) {
             LogCommand log = git.log();
@@ -149,25 +159,36 @@ public class GitInfoServiceImpl implements GitInfoService {
             tw.addTree(current.getTree());
 
             while (tw.next()) {
-                sb.append(new GitObject(tw, repository, git).toString());
+                files.add(new GitFileInfoDTO(tw, repository, git));
             }
+        }catch (Exception e)
+        {
+            throw new MyException("查找出错！","12345");
         }
 
         //TODO：输出再排个序？
+        byte[] readme = null;
+        try{
+            readme = ((GitFileContentDTO)getDetail(owner, repoName, "readme.md", false)).getContent();
+        }catch (MyException e)
+        {
+            System.out.println("暂时没找到readme");
+        }
 
-        return sb.toString();
+        return new GitOverviewDTO().setFiles(files).setReadme(readme);
+
+
     }
 
 
-    @SneakyThrows
     @Override
-    public String getDetail(String owner, String repoName, String path, Boolean isDir) {
+    public Object getDetail(String owner, String repoName, String path, Boolean isDir) throws MyException {
 
-        String gitUrl = JGitUtils.getRepoPath(owner, repoName+SUFFIX);
+        String gitUrl = JGitUtils.getRepoPath(owner, repoName + SUFFIX);
 
         File dir = new File(gitUrl);
         if (!dir.exists()) {
-            return "仓库不存在";
+            throw new MyException("仓库不存在", "1009");
         }
 
         try (Git git = Git.open(dir)) {
@@ -203,67 +224,74 @@ public class GitInfoServiceImpl implements GitInfoService {
                     tw.enterSubtree();
                 }
             }
+        } catch (Exception e) {
+            throw new MyException("文件遍历失败", "1109");
         }
 
-        return "寻找失败，没找到";
+        throw new MyException("没找到文件", "2109");
 
 
     }
 
     @SneakyThrows
-    private String getDir(TreeWalk tw, String path, Repository repository, Git log) {
-        StringBuilder sb = new StringBuilder();
+    private List<GitFileInfoDTO> getDir(TreeWalk tw, String path, Repository repository, Git log) {
+        List<GitFileInfoDTO> files = new ArrayList<>();
+
         tw.enterSubtree();
         while (tw.next()) {
             if ((tw.getPathString() + "/").startsWith(path)) {
-                sb.append(new GitObject(tw, repository, log).toString());
+                files.add(new GitFileInfoDTO(tw, repository, log));
             } else {
                 break;
             }
 
         }
-        return sb.toString();
+
+        return files;
     }
 
-    private String getFile(TreeWalk tw, Repository repository) {
-        return new GitFile(tw, repository).toString();
+    private GitFileContentDTO getFile(TreeWalk tw, Repository repository) {
+        return new GitFileContentDTO(tw, repository);
     }
 
-    @SneakyThrows
     @Override
-    public String onlineUpload(String owner, String repoName, String filename) {
+    public void onlineUpload(String owner, String repoName, String filename) throws MyException {
 
-        String gitUrl = JGitUtils.getRepoPath(owner, repoName+SUFFIX);
+        String gitUrl = JGitUtils.getRepoPath(owner, repoName + SUFFIX);
 
         File dir = new File(gitUrl);
         if (!dir.exists()) {
-            return "仓库不存在";
+            throw new MyException("仓库不存在", "1009");
         }
 
-        String temp = UUID.randomUUID().toString();
+        try {
 
-        String remoteLocal = System.getProperty("user.name")+"@localhost:GitRepo/"+owner+"/" + repoName +SUFFIX;
+            String temp = UUID.randomUUID().toString();
 
-        File directory = JGitUtils.mkdir(owner+File.separator+temp);
+            String remoteLocal = System.getProperty("user.name") + "@localhost:GitRepo/" + owner + "/" + repoName + SUFFIX;
 
-        Git tempGit = Git.cloneRepository()
-                .setURI(remoteLocal)
-                .setDirectory(directory)
-                .setCloneAllBranches(false)
-                .call();
+            File directory = JGitUtils.mkdir(owner + File.separator + temp);
+
+            Git tempGit = Git.cloneRepository()
+                    .setURI(remoteLocal)
+                    .setDirectory(directory)
+                    .setCloneAllBranches(false)
+                    .call();
 
 
-        String s = "# Uploading\nThis is web uploading temp file\n>From Lehr";
-        JGitUtils.createFile("/home/"+System.getProperty("user.name")+"/GitRepo/"+owner+File.separator+temp+File.separator+filename,s);
+            String s = "# Uploading\nThis is web uploading temp file\n>From Lehr";
+            JGitUtils.createFile("/home/" + System.getProperty("user.name") + "/GitRepo/" + owner + File.separator + temp + File.separator + filename, s);
 
-        JGitUtils.addCommit(tempGit,"web uploading test");
+            JGitUtils.addCommit(tempGit, "web uploading test");
 
-        tempGit.push().setRemote(remoteLocal).call();
+            tempGit.push().setRemote(remoteLocal).call();
 
-        //由于目录不是空目录，所以需要递归删除
-        deleteDir(directory);
+            //由于目录不是空目录，所以需要递归删除
+            deleteDir(directory);
 
-        return "上传完成，请检查";
+        } catch (Exception e) {
+            throw new MyException("添加失败", "1209");
+        }
 
     }
 
@@ -281,52 +309,58 @@ public class GitInfoServiceImpl implements GitInfoService {
         return dir.delete();
     }
 
-    @SneakyThrows
     @Override
-    public String onlineDelete(String owner, String repoName, String path) {
+    public void onlineDelete(String owner, String repoName, String path) throws MyException {
 
 
-        String gitUrl = JGitUtils.getRepoPath(owner, repoName+SUFFIX);
+        String gitUrl = JGitUtils.getRepoPath(owner, repoName + SUFFIX);
 
         File dir = new File(gitUrl);
         if (!dir.exists()) {
-            return "仓库不存在";
+            throw new MyException("仓库不存在", "1009");
         }
 
-        String temp = UUID.randomUUID().toString();
+        try {
 
-        String remoteLocal = System.getProperty("user.name")+"@localhost:GitRepo/"+owner+"/" + repoName +SUFFIX;
 
-        File directory = JGitUtils.mkdir(owner+File.separator+temp);
+            String temp = UUID.randomUUID().toString();
 
-        Git tempGit = Git.cloneRepository()
-                .setURI(remoteLocal)
-                .setDirectory(directory)
-                .setCloneAllBranches(false)
-                .call();
+            String remoteLocal = System.getProperty("user.name") + "@localhost:GitRepo/" + owner + "/" + repoName + SUFFIX;
 
-        File deletarget = JGitUtils.getFile(owner+File.separator+ temp + "/" + path);
+            File directory = JGitUtils.mkdir(owner + File.separator + temp);
 
-        if (!deletarget.exists()) {
-            return "文件不存在";
+            Git tempGit = Git.cloneRepository()
+                    .setURI(remoteLocal)
+                    .setDirectory(directory)
+                    .setCloneAllBranches(false)
+                    .call();
+
+            File deletarget = JGitUtils.getFile(owner + File.separator + temp + "/" + path);
+
+            if (!deletarget.exists()) {
+                throw new MyException("目标不存在", "1009");
+            }
+            if (deletarget.isFile()) {
+                deletarget.delete();
+            } else {
+                deleteDir(deletarget);
+            }
+
+            tempGit.add().setUpdate(true).addFilepattern(".").call();
+
+
+            JGitUtils.addCommit(tempGit, "delete test!");
+
+            tempGit.push().setRemote(remoteLocal).call();
+
+            //由于目录不是空目录，所以需要递归删除
+            deleteDir(directory);
+        } catch (MyException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new MyException("删除失败", "1309");
         }
-        if (deletarget.isFile()) {
-            deletarget.delete();
-        } else {
-            deleteDir(deletarget);
-        }
 
-        tempGit.add().setUpdate(true).addFilepattern(".").call();
-
-
-        JGitUtils.addCommit(tempGit,"delete test!");
-
-        tempGit.push().setRemote(remoteLocal).call();
-
-        //由于目录不是空目录，所以需要递归删除
-        deleteDir(directory);
-
-        return "删除成功";
 
     }
 

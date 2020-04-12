@@ -1,8 +1,8 @@
 package com.quizhub.uaa.service;
 
+import com.quizhub.common.javabean.ResponseMsg;
 import com.quizhub.uaa.dao.UserMapper;
 import com.quizhub.uaa.javabean.GitHubInfo;
-import com.quizhub.uaa.javabean.ResponseMsg;
 import com.quizhub.uaa.javabean.bo.UserBO;
 import com.quizhub.uaa.javabean.dto.UserDTO;
 import com.quizhub.uaa.client.AuthService;
@@ -95,17 +95,7 @@ public class AccountService {
     }
 
 
-    /**
-     * 通过名字获取id
-     * @param username
-     * @return
-     */
-    public String getIdByUsername(String username)
-    {
-        UserBO user = userMapper.getUserByName(username);
-        return  user.getUserId();
 
-    }
 
 
 }

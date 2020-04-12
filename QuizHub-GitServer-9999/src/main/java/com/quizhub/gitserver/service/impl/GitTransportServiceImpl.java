@@ -1,5 +1,6 @@
 package com.quizhub.gitserver.service.impl;
 
+import com.quizhub.common.javabean.ResponseMsg;
 import com.quizhub.gitserver.client.AuthenticateClient;
 import com.quizhub.gitserver.client.AuthorityClient;
 import com.quizhub.gitserver.service.GitTransportService;
@@ -10,8 +11,10 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.File;
+import java.io.OutputStream;
 import java.util.Base64;
+import java.util.LinkedHashMap;
 
 /**
  * @author Lehr
@@ -22,7 +25,6 @@ import java.util.Base64;
 public class GitTransportServiceImpl implements GitTransportService {
 
 
-
     @Autowired
     private AuthenticateClient authenticateClient;
 
@@ -30,13 +32,13 @@ public class GitTransportServiceImpl implements GitTransportService {
     private AuthorityClient authorityClient;
 
 
-    private static final String gitRoot = "/home/"+System.getProperty("user.name")+"/GitRepo/";
+    private static final String gitRoot = "/home/" + System.getProperty("user.name") + "/GitRepo/";
 
-    private Boolean hasAuthentication(HttpServletRequest req, HttpServletResponse res, String repo,String owner, String service) {
+    private Boolean hasAuthentication(HttpServletRequest req, HttpServletResponse res, String repo, String owner, String service) {
 
         Boolean hasAuth = false;
 
-        try{
+        try {
 
             String authorization = req.getHeader("Authorization");
 
@@ -49,34 +51,30 @@ public class GitTransportServiceImpl implements GitTransportService {
                 String username = auth[0];
                 String password = auth[1];
 
-                String visitorId = authenticateClient.httpAuth(username,password);
-                if("quizhub".equals(username))
-                {
-                    hasAuth = true;
-                }
-                if(!"auth-fail".equals(visitorId))
-                {
+                ResponseMsg responseMsg = authenticateClient.httpAuth(username, password);
+                if (responseMsg.getSuccess()) {
                     //检查认证信息 目前repo就不检查拥有者了
-                    hasAuth = authorityClient.repoTransCheck(visitorId,owner,repo,service);
+                    LinkedHashMap data = (LinkedHashMap) responseMsg.getData();
+                    String visitorId = data.get("userId").toString();
+                    hasAuth = authorityClient.repoTransCheck(visitorId, owner, repo, service);
                 }
 
             }
 
-        }catch (Exception e)
-        {
+
+        } catch (Exception e) {
             hasAuth = false;
-            log.warn("认证解析错误",e);
+            log.warn("认证解析错误", e);
         }
 
-        if(!hasAuth)
-        {
+        if (!hasAuth) {
             res.setStatus(401);
             res.setHeader("WWW-Authenticate", "Basic realm=\"Lehr's Quizhub\"");
         }
 
         return hasAuth;
 
-}
+    }
 
     @SneakyThrows
     @Override
@@ -118,7 +116,7 @@ public class GitTransportServiceImpl implements GitTransportService {
     public void postRequest(byte[] info, String repo, String owner, String service, HttpServletRequest req, HttpServletResponse res) {
 
         //检查权限
-        if (!hasAuthentication(req, res, repo,owner, service)) {
+        if (!hasAuthentication(req, res, repo, owner, service)) {
             return;
         }
 

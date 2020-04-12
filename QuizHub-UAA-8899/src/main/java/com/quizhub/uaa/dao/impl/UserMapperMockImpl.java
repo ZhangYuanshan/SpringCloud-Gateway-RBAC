@@ -19,8 +19,8 @@ public class UserMapperMockImpl implements UserMapper {
 
     static{
         //密码就是lerie bcr加密看  String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
-        userPool.put("1",new UserPO().setUsername("Lehr")
-                .setUserId("1").setGithubId("45219850").setBio("Hey Lehr")
+        userPool.put("Lehr",new UserPO().setUsername("Lehr")
+                .setUserId("Lehr").setGithubId("45219850").setBio("Hey Lehr")
                 .setPassword("$2a$10$f/Wa6ESfZEGBvu/R3OjiveRJRaZRqC1ON5cAHSl2Ym/E5VQeB/aPy"));
     }
 

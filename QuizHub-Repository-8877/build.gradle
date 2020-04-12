@@ -1,6 +1,7 @@
 dependencies {
     compile project(":QuizHub-GlobalCommon")
     compile project(":QuizHub-Swagger")
+    compile project(":QuizHub-MQ")
     compile ('org.springframework.boot:spring-boot-starter-web')
     compile ('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery')
     compile ('com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel')

@@ -6,4 +6,7 @@ include 'QuizHub-GitServer-9999'
 include 'QuizHub-Swagger'
 include 'QuizHub-RBAC-8900'
 include 'QuizHub-Repository-8877'
+include 'QuizHub-Logger-8118'
+include 'QuizHub-CommonEntity'
+include 'QuizHub-MQ'
 

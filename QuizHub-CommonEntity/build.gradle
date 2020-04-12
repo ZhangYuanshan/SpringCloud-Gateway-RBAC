@@ -1,0 +1,5 @@
+jar.enabled=true
+dependencies {
+    //ObjectMapper要用
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.3'
+}

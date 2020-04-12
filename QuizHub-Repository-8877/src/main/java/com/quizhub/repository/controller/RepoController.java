@@ -1,6 +1,6 @@
 package com.quizhub.repository.controller;
 
-import com.quizhub.globalcommon.javabean.pojo.Pager;
+import com.quizhub.common.javabean.Pager;
 import com.quizhub.repository.javabean.vo.RepoIntroVO;
 import com.quizhub.repository.javabean.vo.RepoVO;
 import com.quizhub.repository.service.RepoService;
@@ -12,6 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Lehr
@@ -43,18 +45,30 @@ public class RepoController {
     }
 
 
-    @ApiOperation(value = "仓库具体",notes = "获取仓库主页所需的各种信息")
+    @ApiOperation(value = "asyn仓库具体",notes = "获取仓库主页所需的各种信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name="owner",value="仓库拥有者的id"),
             @ApiImplicitParam(name="repoName",value="仓库名称")
     })
-    @GetMapping("/{owner}/{repoName}")
+    @GetMapping("asyn/{owner}/{repoName}")
     public RepoVO getRepo(@PathVariable("owner")String owner, @PathVariable("repoName")String repoName)
     {
         log.info("正在获取仓库详细内容");
         return repoService.getRepo(owner, repoName);
     }
 
+
+    @ApiOperation(value = "sync仓库具体",notes = "获取仓库主页所需的各种信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="owner",value="仓库拥有者的id"),
+            @ApiImplicitParam(name="repoName",value="仓库名称")
+    })
+    @GetMapping("sync/{owner}/{repoName}")
+    public RepoVO getRepoSyn(@PathVariable("owner")String owner, @PathVariable("repoName")String repoName)
+    {
+        log.info("正在获取仓库详细内容");
+        return repoService.getRepoSyn(owner, repoName);
+    }
 
     @ApiOperation(value = "创建仓库",notes = "创建一个仓库")
     @ApiImplicitParams({
@@ -63,10 +77,9 @@ public class RepoController {
             @ApiImplicitParam(name="isPublic",value="是否公开，true or false")
     })
     @PostMapping("")
-    public void createRepo(String repoName, String intro,Boolean isPublic)
+    public void createRepo(String repoName, String intro, Boolean isPublic, HttpServletRequest request)
     {
-        //owner从jwt里获得userid
-        String owner = "mock";
+        String owner = request.getHeader("userId");
         log.info("正在创建仓库");
         repoService.createRepo(owner,repoName,intro,isPublic);
     }

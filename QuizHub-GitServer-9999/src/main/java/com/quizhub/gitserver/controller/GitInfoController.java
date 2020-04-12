@@ -1,7 +1,11 @@
 package com.quizhub.gitserver.controller;
 
+import com.quizhub.common.javabean.MyException;
+import com.quizhub.common.javabean.ResponseMsg;
 import com.quizhub.gitserver.service.GitInfoService;
 import com.quizhub.gitserver.utils.RequestUtils;
+import com.quizhub.mq.config.MQClient;
+import com.quizhub.mq.javabean.enums.MqTags;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.SneakyThrows;
@@ -32,7 +36,7 @@ public class GitInfoController {
     @PostMapping("logs")
     public void pushLog()
     {
-        System.out.println("----------------------adding------------------------");
+        MQClient.sendMessage(MqTags.LOG,"某个仓库发送更新操作");
     }
 
 
@@ -41,11 +45,18 @@ public class GitInfoController {
      * @param repoName
      * @return
      */
-    @SneakyThrows
     @ApiOperation(value = "日志获取",notes = "获取这个仓库的全部日志")
     @GetMapping("{owner}/{repoName}/logs")
-    public String getLog(@PathVariable("owner")String owner,@PathVariable("repoName") String repoName) {
-        return  service.gitLog(owner,repoName);
+    public ResponseMsg getLog(@PathVariable("owner")String owner, @PathVariable("repoName") String repoName) {
+
+        try{
+            return ResponseMsg.ofSuccess(service.gitLog(owner, repoName));
+        }
+        catch (MyException e)
+        {
+            return ResponseMsg.ofFail(e);
+        }
+
     }
 
     /**
@@ -56,8 +67,14 @@ public class GitInfoController {
     @SneakyThrows
     @ApiOperation(value = "查看仓库",notes = "获取这个仓库所有文件最新版本的信息")
     @GetMapping("{owner}/{repoName}")
-    public String getRepo(@PathVariable("owner")String owner,@PathVariable("repoName") String repoName) {
-        return  service.gitFiles(owner,repoName);
+    public ResponseMsg getRepo(@PathVariable("owner")String owner,@PathVariable("repoName") String repoName) {
+        try{
+            return ResponseMsg.ofSuccess(service.repoOverview(owner, repoName));
+        }
+        catch (MyException e)
+        {
+            return ResponseMsg.ofFail(e);
+        }
     }
 
     /**
@@ -68,8 +85,14 @@ public class GitInfoController {
     @SneakyThrows
     @ApiOperation(value = "创建仓库",notes = "创建一个仓库，并获取访问链接")
     @PostMapping("{owner}/{repoName}")
-    public String createRepo(@PathVariable("owner")String owner, @PathVariable("repoName") String repoName) {
-        return service.createRepo(owner,repoName);
+    public ResponseMsg createRepo(@PathVariable("owner")String owner, @PathVariable("repoName") String repoName) {
+        try{
+            return ResponseMsg.ofSuccess(service.createRepo(owner,repoName));
+        }
+        catch (MyException e)
+        {
+            return ResponseMsg.ofFail(e);
+        }
     }
 
     /**
@@ -82,51 +105,68 @@ public class GitInfoController {
     @SneakyThrows
     @ApiOperation(value = "内容查询",notes = "查询具体某个资源，如果是文件就返回内容，如果是文件夹就返回目录")
     @GetMapping("{owner}/{repoName}/{type}/{brench}/**")
-    public String getDetail(@PathVariable("owner")String owner,
+    public ResponseMsg getDetail(@PathVariable("owner")String owner,
                             @PathVariable("repoName") String repoName,
                             @PathVariable("type")String type, HttpServletRequest request) {
 
-        String path = RequestUtils.extractPathFromPattern(request);
+        try{
+            String path = RequestUtils.extractPathFromPattern(request);
 
-        Boolean isDir = null;
-        if("tree".equals(type))
-        {
-            isDir = true;
+            Boolean isDir = null;
+            if("tree".equals(type))
+            {
+                isDir = true;
+            }
+            else if("blob".equals(type))
+            {
+                isDir = false;
+            }
+            else{
+                throw new MyException("查找类型不合法","1003");
+            }
+
+            return ResponseMsg.ofSuccess(service.getDetail(owner,repoName,path,isDir));
         }
-        else if("blob".equals(type))
+        catch (MyException e)
         {
-            isDir = false;
-        }
-        else{
-            return "查找失败，类型不合法";
+            return ResponseMsg.ofFail(e);
         }
 
-        return service.getDetail(owner,repoName,path,isDir);
 
     }
 
     @SneakyThrows
     @ApiOperation(value = "web上传",notes = "通过web触发的文件上传操作")
     @PutMapping("{owner}/{repoName}")
-    public String onlineUpload(@PathVariable("owner")String owner,
+    public ResponseMsg onlineUpload(@PathVariable("owner")String owner,
                                @PathVariable("repoName") String repoName,
                                String filename) {
-
-        return service.onlineUpload(owner,repoName,filename);
+        try{
+            service.onlineUpload(owner,repoName,filename);
+            return ResponseMsg.ofSuccess();
+        }
+        catch (MyException e)
+        {
+            return ResponseMsg.ofFail(e);
+        }
 
     }
 
     @SneakyThrows
     @ApiOperation(value = "web删除",notes = "通过web触发的删除功能")
     @DeleteMapping("{owner}/{repoName}/**")
-    public String onlineDelete(@PathVariable("owner")String owner,
+    public ResponseMsg onlineDelete(@PathVariable("owner")String owner,
                                @PathVariable("repoName") String repoName,
                                HttpServletRequest request) {
-
-        String filename = RequestUtils.extractPathFromPattern(request);
-
-        return service.onlineDelete(owner,repoName,filename);
-
+        try{
+            String filename = RequestUtils.extractPathFromPattern(request);
+            service.onlineDelete(owner,repoName,filename);
+            return ResponseMsg.ofSuccess();
+        }
+        catch (MyException e)
+        {
+            return ResponseMsg.ofFail(e);
+        }
     }
 
 

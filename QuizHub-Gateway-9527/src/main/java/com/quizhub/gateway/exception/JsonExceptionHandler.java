@@ -34,16 +34,16 @@ public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
         log.warn(error.getMessage());
 
         //准备一个基本的错误m码
-        String code = "500";
+        Integer code = HttpStatus.INTERNAL_SERVER_ERROR.value();
         String errMsg = "网关处理异常...";
         if (error instanceof org.springframework.cloud.gateway.support.NotFoundException) {
             //一般情况下可能是后台服务没有启动起来
-            code = "503";
+            code = HttpStatus.SERVICE_UNAVAILABLE.value();
             errMsg = "目标服务正在维护中...";
         }
         if(error.getMessage().contains("404"))
         {
-            code = "404";
+            code = HttpStatus.NOT_FOUND.value();
             errMsg = "未能发现服务...";
         }
 
@@ -75,6 +75,10 @@ public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
      */
     @Override
     protected HttpStatus getHttpStatus(Map<String, Object> errorAttributes) {
-        return HttpStatus.valueOf(500);
+
+        Integer retCode = (Integer)errorAttributes.get("retCode");
+
+        return HttpStatus.valueOf(retCode);
+
     }
 }

@@ -1,9 +1,11 @@
 package com.quizhub.repository.javabean.vo;
 
 import com.quizhub.repository.javabean.entity.FileInfo;
+import com.quizhub.repository.javabean.po.RepoPO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.List;
 @Data
 @ApiModel("仓库详细")
 @Accessors(chain = true)
+@NoArgsConstructor
 public class RepoVO {
 
     @ApiModelProperty(value = "仓库名称")
@@ -49,5 +52,18 @@ public class RepoVO {
 
     @ApiModelProperty(value = "readme的内容")
     private byte[] readmeContent;
+
+    public RepoVO(RepoPO po)
+    {
+        httpUri = po.getHttpUri();
+        watchNum = po.getWatchNum();
+        starNum = po.getStarNum();
+        forkNum = po.getForkNum();
+        isPublic = po.getIsPublic();
+        repoName = po.getRepoName();
+        username = po.getUsername();
+        repoIntro = po.getRepoIntro();
+        tagName = po.getTagName();
+    }
 
 }

@@ -73,7 +73,7 @@ public class AuthService {
 
                     //如果只要求登录的情况
                     if (rule.authorities.isEmpty()) {
-                        return (!"Auth-fail".equals(userId));
+                        return (!"auth-fail".equals(userId));
                     }
 
                     //这个是权限检查，不一定需要登录了，而是看有没有权限

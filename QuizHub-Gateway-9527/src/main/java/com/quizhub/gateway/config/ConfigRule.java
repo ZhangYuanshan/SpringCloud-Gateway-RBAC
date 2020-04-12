@@ -15,7 +15,7 @@ public class ConfigRule {
     public AuthRules authRules()
     {
         return AuthRules.getBuilder()
-                .antMatchers("/repos").checkAuthority("POST")
+                .antMatchers("/repos").authenticated()
                 .and()
                 .antMatchers("/repos/**").checkAuthority("GET","DELETE","POST","PUT")
                 .and()
