@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
@@ -99,10 +100,13 @@ public class GitTransportServiceImpl implements GitTransportService {
         }
 
         //准备响应的第一行，这个是规范要求
-        res.getOutputStream().write(("001" + type + "# service=" + service + "\n0000").getBytes());
+        ServletOutputStream outputStream = res.getOutputStream();
+        outputStream.write(("001" + type + "# service=" + service + "\n0000").getBytes());
 
         //把输出的refs信息放入响应体里
-        process.getInputStream().transferTo(res.getOutputStream());
+        process.getInputStream().transferTo(outputStream);
+
+
 
         //准备响应头
         res.setHeader("Content-Type", "application/x-" + service + "-advertisement");
@@ -131,8 +135,11 @@ public class GitTransportServiceImpl implements GitTransportService {
         outputStream.write(info);
         outputStream.flush();
 
+
+
         //把结果放入到响应输出里去
         process.getInputStream().transferTo(res.getOutputStream());
+
 
         //设置响应头，完成任务
         res.setHeader("Content-Type", "application/x-" + service + "-result");

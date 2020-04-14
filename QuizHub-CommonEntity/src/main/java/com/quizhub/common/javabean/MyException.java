@@ -1,11 +1,13 @@
 package com.quizhub.common.javabean;
 
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Lehr
  * @create: 2020-03-26
  */
+@Slf4j
 public class MyException extends Exception {
 
 
@@ -46,6 +48,7 @@ public class MyException extends Exception {
 
     public MyException(String message, Throwable cause, String retCode) {
         super(message, cause);
+        log.warn(message,cause);
         this.retCode = retCode;
     }
 
@@ -56,6 +59,7 @@ public class MyException extends Exception {
 
     public MyException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, String retCode) {
         super(message, cause, enableSuppression, writableStackTrace);
+        log.warn(message);
         this.retCode = retCode;
     }
 }

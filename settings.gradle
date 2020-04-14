@@ -9,4 +9,5 @@ include 'QuizHub-Repository-8877'
 include 'QuizHub-Logger-8118'
 include 'QuizHub-CommonEntity'
 include 'QuizHub-MQ'
+include 'QuizHub-ElastiSearch-9882'
 

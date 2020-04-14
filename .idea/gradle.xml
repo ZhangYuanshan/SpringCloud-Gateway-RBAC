@@ -10,6 +10,7 @@
           <set>
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-CommonEntity" />
+            <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-ElastiSearch-9882" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-Gateway-9527" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-GitServer-9999" />
             <option value="$USER_HOME$/桌面/LehrsJavaEE/QuizHub/QuizHub-GlobalCommon" />
